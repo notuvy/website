@@ -1,0 +1,33 @@
+
+  p.section {
+    margin-left: 5mm;
+  }
+
+  p.navreturn {
+    color: #000000;
+    text-align: left;
+  }
+
+  h1, h2, h3, h4, a, th, .table-header {
+    color: #000099;
+  }
+
+  h2, h3, h4, a:hover {
+    background-color: #c8c896;
+  }
+
+  pre {
+    background-color: #dcdcdc;
+  }
+
+  blockquote {
+    font-size: 14pt;
+    font-style: italic;
+  }
+
+  .quote {
+    display: block;
+    margin-left: 10mm;
+    font-style: italic;
+    font-size: 14pt;
+  }

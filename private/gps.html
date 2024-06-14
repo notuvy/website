@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+  <head>
+    <title>GPS / Map</title>
+<script language="javascript">
+  function populateLat() {
+    lat = document.control.elements[0].value;
+    lon = document.control.elements[1].value;
+    document.google.elements[0].value = lat + "," + lon;
+    document.yahoo.elements[0].value = lat;
+    document.topozone.elements[0].value = lat;
+  }
+function populateLon() {
+    lon = document.control.elements[1].value;
+    lat = document.control.elements[0].value;
+    document.google.elements[0].value = lat + "," + lon;
+    document.yahoo.elements[1].value = lon;
+    document.topozone.elements[1].value = lon;
+  }
+</script>
+  </head>
+
+  <body bgcolor="#e0e0e0">
+
+  <table width="100%">
+    <tr bgcolor="#aaaaaa"><td colspan="2" align="center"><font size="+2">GPS / Map</font></td></tr>
+    <tr>
+  </table>
+<br>
+
+  <table border="1" align="center">
+    <tr><th>Service</th><th>Latitude</th><th>Longitude</th><th>&nbsp;</th></tr>
+
+    <!-- http://maps.google.com/maps?ll=37.3622,-122.0345&spn=0.021626,0.039396&om=1 -->
+    <!-- http://maps.google.com/maps?ll=37.3622,-122.0345&spn=0.11,0.18 -->
+    <form method="GET" action="http://maps.google.com/maps" name="google" target="map">
+    <tr valign="top">
+      <td><a href="http://maps.google.com/maps">Google</a></td>
+      <td colspan="2" align="center">
+        <input type="text" name="ll" value="37.3622,-122.0345" size="40">
+      </td>
+      <td>
+        <input type="submit" value="submit">
+      </td>
+    </tr>
+    <input type="hidden" name="spn" value="0.021626,0.039396">
+    <input type="hidden" name="om" value="1">
+    </form>
+
+    <!-- http://maps.yahoo.com/maps_result?lat=37.3622&lon=-122.0345&mag=4 -->
+    <form method="GET" action="http://maps.yahoo.com/maps_result" name="yahoo" target="map">
+    <tr valign="top">
+      <td><a href="http://maps.yahoo.com/">Yahoo</a></td>
+      <td>
+        <input type="text" name="lat" value="37.3622" size="18">
+      </td>
+      <td>
+        <input type="text" name="lon" value="-122.0345" size="18">
+      </td>
+      <td>
+        <input type="submit" value="submit">
+      </td>
+    </tr>
+    <input type="hidden" name="mag" value="4">
+    </form>
+
+    <!-- http://topozone.com/map.asp?lat=37.3622&lon=-122.0345&s=200&size=m&layer=DRG100&datum=nad83 -->
+    <form method="GET" action="http://topozone.com/map.asp" name="topozone" target="map">
+    <tr valign="top">
+      <td><a href="http://www.topozone.com/">TopoZone</a></td>
+      <td>
+        <input type="text" name="lat" value="37.3622" size="18">
+      </td>
+      <td>
+        <input type="text" name="lon" value="-122.0345" size="18">
+      </td>
+      <td>
+        <input type="submit" value="submit">
+      </td>
+    </tr>
+    <input type="hidden" name="s" value="200">
+    <input type="hidden" name="size" value="m">
+    <input type="hidden" name="layer" value="DRG100">
+    <input type="hidden" name="datum" value="nad83">
+    </form>
+
+    <form method="GET" action="" name="control">
+    <tr valign="top">
+      <td>control</td>
+      <td>
+        <input type="text" name="lat" value="37.3622" size="18" onblur="populateLat()">
+      </td>
+      <td>
+        <input type="text" name="lon" value="-122.0345" size="18" onblur="populateLon()">
+      </td>
+      <td>
+        &nbsp;
+      </td>
+    </tr>
+    </form>
+
+  </table>
+
+  <br/>
+
+  <table border="0">
+  <tr><td><b>Links</b></td>
+  <td>| <a href="http://www.travelbygps.com/index.php">Travel By GPS</a>
+      | <a href="http://www.garmin.com/support/commProtocol.html">Garmin API</a>
+      | <a href="http://tuxmobil.org/navigation_gps.html">Linux GPS</a>
+      | <a href="http://roadmap.digitalomaha.net/index.html">RoadMap</a>
+      | <a href="http://www.gpsbabel.org/">GPSBabel</a>
+      | <a href="http://www.mapmyrun.com/">MapMyRun</a>
+      | <a href="http://wayhoo.com/">Wayhoo</a>
+      | <a href="http://www.jeeep.com/details/coord/">Conversion</a>
+      | <a href="http://www.gpsvisualizer.com/">GPS Visualizer</a>
+      | <a href="http://www.gmap-pedometer.com/">gmap-pedometer</a>
+      | <a href="http://www.elsewhere.org/journal/gmaptogpx">gmap to gpx</a>
+      | <a href="http://www.bikely.com/">Bikely</a>
+      | <a href="http://trail.motionbased.com/trail/network/digest/view.mb">Motion Based</a>
+      | </td></tr>
+  </table>
+
+  <table width="100%">
+    <tr bgcolor="#aaaaaa"><td align="center">&nbsp;</td></tr>
+  </table>
+
+  </body>
+</html>

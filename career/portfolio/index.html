@@ -1,0 +1,80 @@
+<html>
+<head>
+  <title>Sample Project: HtmlCal</title>
+  <link rel="stylesheet" type="text/css" href="../main.css">
+  <link rel="stylesheet" type="text/css" href="../essay/essay.css">
+  <link rel="stylesheet" type="text/css" href="portfolio.css">
+  <style>
+  .further {
+    margin-left: 10mm;
+  }
+  </style>
+</head>
+<body>
+<h1 align="center">Sample Project: HtmlCal</h1>
+
+<p>
+  This is a small project presented here are an example of my design
+  and coding style.
+  <i>Admittedly, this is a toy program.</i>
+  It does <i>not</i> demonstrate my proficiency in designing large,
+  complex systems.
+  An example of that magnitude would take a large amount of time for
+  an observer to digest and comprehend.
+  However, even in this small example I can highlight several design
+  features that are the hallmark of an experienced engineer.
+</p>
+
+<h2>Specification</h2>
+<p class="section">
+    The requirement for this project was to design a presentation layer
+    module to represent a date range as a highlighted sequence of days
+    on an html calendar.
+    The module can be executed as a standalone program which takes any
+    number of dates on the command line, and it also provides an API
+    which other programs can use.<br>
+</p>
+<p class="section">
+    For example, the given API usage:<br>
+<pre>
+    HtmlCal cal = new HtmlCal();
+    cal.add("2006-09-02");
+    cal.add("2006-09-12");
+    System.out.println(cal.toHtml());
+</pre>
+</p>
+<p class="section">
+    Would produce:<br>
+<div style="margin-left: 10mm;">
+<table cellspacing="0">
+<tr><th colspan="7" bgcolor="#ddddaa">September 2006</th></tr>
+<tr align="right"><th width="15%">Su</th><th width="14%">Mo</th><th width="14%">Tu</th><th width="14%">We</th><th width="14%">Th</th><th width="14%">Fr</th><th width="15%">Sa</th></tr>
+<tr align="right"><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td> 1</td><td bgcolor="#ffaaaa"> 2</td></tr>
+<tr align="right"><td bgcolor="#ffaaaa"> 3</td><td bgcolor="#ffaaaa"> 4</td><td bgcolor="#ffaaaa"> 5</td><td bgcolor="#ffaaaa"> 6</td><td bgcolor="#ffaaaa"> 7</td><td bgcolor="#ffaaaa"> 8</td><td bgcolor="#ffaaaa"> 9</td></tr>
+<tr align="right"><td bgcolor="#ffaaaa">10</td><td bgcolor="#ffaaaa">11</td><td bgcolor="#ffaaaa">12</td><td>13</td><td>14</td><td>15</td><td>16</td></tr>
+<tr align="right"><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td></tr>
+<tr align="right"><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td></tr>
+</table>
+</div>
+</p>
+
+<h2>Implementation</h2>
+<p class="section">
+    The full source listing is provided.
+    This <a href="classsummary.html">table</a> describes all the classes used,
+    and it contains the links to the source for each class.
+</p>
+
+<h2>Design Principles</h2>
+<p class="section">
+    The details of how superior design principles are used are explained
+    <a href="design.html">here</a>.
+</p>
+
+<p class="copyright">&copy;2006 Murali Krishnan</p>
+<p class="navreturn">
+  <a class="nav" href="../index.html">main index</a>
+</p>
+
+</body>
+</html>

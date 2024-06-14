@@ -1,0 +1,35 @@
+
+<VirtualHost *:80>
+	ServerAdmin webmaster@localhost
+
+	DocumentRoot /home/ubuntu/website/snipfolioroot
+	ServerName snipfolio.com
+	ServerAlias www.snipfolio.com
+
+	<Directory /home/ubuntu/website/snipfolioroot/>
+		Options FollowSymLinks
+		AllowOverride None
+	</Directory>
+
+	ErrorLog ${APACHE_LOG_DIR}/snipfolio/error.log
+
+	# Possible values include: debug, info, notice, warn, error, crit,
+	# alert, emerg.
+	LogLevel warn
+
+	CustomLog ${APACHE_LOG_DIR}/snipfolio/access.log combined
+
+    Alias /download/ "/home/ubuntu/website/sfdownload/"
+    <Directory "/home/ubuntu/website/sfdownload/">
+        Options MultiViews
+        AllowOverride None
+        Order allow,deny
+        Allow from all
+
+	AuthType Basic
+	AuthName "SnipFolio: restricted download"
+	AuthUserFile /home/ubuntu/wwwconfig/pwd_sf
+	Require valid-user
+    </Directory>
+
+</VirtualHost>

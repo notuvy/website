@@ -1,0 +1,371 @@
+<html>
+<head>
+<title>Fantasy Sports Index</title>
+<script>
+  function submitTeamDate() {
+    if (document.teamdate.onsubmit && !document.teamdate.onsubmit()) {
+      return;
+    }
+    document.teamdate.date.value = "2011-" + document.teamdate.month.value + "-" + document.teamdate.day.value;
+    document.teamdate.month.value = "";
+    document.teamdate.day.value = "";
+    document.teamdate.submit();
+  }
+</script>
+</head>
+<body>
+<h1>Fantasy Sports Index</h1>
+
+<p>
+  <a href="http://sports.yahoo.com/fantasy">Yahoo Fantasty Sports Home</a>
+</p>
+
+<h2>Baseball</h2>
+
+      <a href="http://baseball.fantasysports.yahoo.com/league/shawon_dunston">League</a>
+      <a href="http://baseball.fantasysports.yahoo.com/b1/42329/7">team</a>
+      <a href="fmlb.html">[log]</a>
+      <a href="http://groups.yahoo.com/group/shawon_dunston_fc/">[group]</a>
+<!--      <a href="http://baseball.fantasysports.yahoo.com/b1/30192/loadstattracker" target="stattracker_30192">StatTracker</a> -->
+      <a href="http://baseball.fantasysports.yahoo.com/league/shawon_dunston/2012">[last year]</a>
+
+  <form name="f" method="get" action="http://baseball.fantasysports.yahoo.com/b1/42329/players" >
+
+    <select name="status">
+      <option value="ALL" selected>All Players</option>
+      <option value="A">All Available Players</option>
+      <option value="FA">Free Agents Only</option>
+      <option value="W">Waivers Only</option>
+      <option value="WL">My Watch List</option>
+      <option value="K">Keepers</option>
+      <option value="T">All Taken Players</option>
+      <option value="1">Termites</option>
+      <option value="2">Red Dragons</option>
+      <option value="3">Cosmo Kramers</option>
+      <option value="4">Chili con Carne</option>
+      <option value="5">THE MADCAPS</option>
+      <option value="6">La Cosa Nostra</option>
+      <option value="7">Chicago Mets</option>
+      <option value="8">Griffin</option>
+      <option value="9">Johnny Bench Called/option>
+      <option value="10">The Fighting Poms</option>
+      <option value="11">WHIP This</option>
+    </select>          
+
+    <select name="pos">
+      <option value="B" selected>All Batters</option>
+      <option value="P">All Pitchers</option>
+      <option value="S_P">P (Probable)</option>
+      <option value="C">C</option>
+      <option value="1B">1B</option>
+      <option value="2B">2B</option>
+      <option value="3B">3B</option>
+      <option value="SS">SS</option>
+      <option value="OF">OF</option>
+      <option value="Util">Util</option>
+      <option value="SP">SP</option>
+      <option value="RP">RP</option>
+    </select> 
+
+    <select name="stat1">
+      <option value="S_S_2014">Season (total)</option>
+      <option value="S_AS_2014">Season (avg)</option>
+      <option value="S_L30" selected>Last Month (total)</option>
+      <option value="S_AL30">Last Month (avg)</option>
+      <option value="S_L7">Last Week (total)</option>
+      <option value="S_AL7">Last Week (avg)</option>
+      <option value="S_L14">Last 2 Weeks (total)</option>
+      <option value="S_AL14">Last 2 Weeks (avg)</option>
+      <option value="S_SPS_2011">Splits: Season</option>
+      <option value="S_SPC">Splits: Career</option>
+      <option value="K_K">Ranks</option>
+      <option value="O_O">Opponents</option>
+      <option value="RO">Research</option>
+      <option value="RR_L7">Player Ranker</option>
+      <option value="S_S_2013">2013 Season (total)</option>
+      <option value="S_S_2012">2012 Season (total)</option>
+    </select> 
+
+    <select name="sort">
+      <option value="AR">Rank</option>
+      <option value="4">OBP</option>
+      <option value="23">TB</option>
+      <option value="13">RBI</option>
+      <option value="7">R</option>
+      <option value="62">NSB</option>
+      <option value="42">K</option>
+      <option value="26">ERA</option>
+      <option value="27">WHIP</option>
+      <option value="28">W</option>
+      <option value="85">NSV</option>
+      <option value="OR">O-Rank</option>
+    </select> 
+
+    <input type="submit" value="submit">
+  </form>
+  my team players:
+  <a href="http://baseball.fantasysports.yahoo.com/b1/42329/playernotes?notetab=MY">notes</a>
+  <table border="1">
+    <tr><td colspan="4">My Hitters By Rank</td></tr>
+    <tr><th>&nbsp;</th><th>Last Week</th><th>Last 2 Weeks</th><th>Last Month</th></tr>
+    <tr><td>My Team</td><td><a href="http://baseball.fantasysports.yahoo.com/b1/42329/players?status=1&pos=B&stat1=S_L7&sort=AR">X</a></td><td><a href="http://baseball.fantasysports.yahoo.com/b1/42329/players?status=1&pos=B&stat1=S_L14&sort=AR">X</a></td><td><a href="http://baseball.fantasysports.yahoo.com/b1/42329/players?status=1&pos=B&stat1=S_L30&sort=AR">X</a></td></tr>
+    <tr><td>Available</td><td><a href="http://baseball.fantasysports.yahoo.com/b1/42329/players?status=A&pos=B&stat1=S_L7&sort=AR&myteam=1">X</a></td><td><a href="http://baseball.fantasysports.yahoo.com/b1/42329/players?status=A&pos=B&stat1=S_L14&sort=AR&myteam=1">X</a></td><td><a href="http://baseball.fantasysports.yahoo.com/b1/42329/players?status=A&pos=B&stat1=S_L30&sort=AR&myteam=1">X</a></td></tr>
+  </table>
+  <form name="teamdate" method="get" action="http://baseball.fantasysports.yahoo.com/b1/42329/1">
+  roster date:
+    <input type="hidden" name="stat1" value="S">
+    <input type="hidden" name="stat2" value="D">
+    <input type="hidden" name="date" value="">
+
+    <select name="month">
+      <option value="04">Apr</option>
+      <option value="05">May</option>
+      <option value="06">Jun</option>
+      <option value="07">Jul</option>
+      <option value="08">Aug</option>
+      <option value="09">Sep</option>
+      <option value="10">Oct</option>
+    </select> 
+
+    <select name="day">
+      <option value="01">01</option>
+      <option value="02">02</option>
+      <option value="03">03</option>
+      <option value="04">04</option>
+      <option value="05">05</option>
+      <option value="06">06</option>
+      <option value="07">07</option>
+      <option value="08">08</option>
+      <option value="09">09</option>
+      <option value="10">10</option>
+      <option value="11">11</option>
+      <option value="12">12</option>
+      <option value="13">13</option>
+      <option value="14">14</option>
+      <option value="15">15</option>
+      <option value="16">16</option>
+      <option value="17">17</option>
+      <option value="18">18</option>
+      <option value="19">19</option>
+      <option value="20">20</option>
+      <option value="21">21</option>
+      <option value="22">22</option>
+      <option value="23">23</option>
+      <option value="24">24</option>
+      <option value="25">25</option>
+      <option value="26">26</option>
+      <option value="27">27</option>
+      <option value="28">28</option>
+      <option value="29">29</option>
+      <option value="30">30</option>
+      <option value="31">31</option>
+    </select> 
+
+    <a href="javascript: submitTeamDate()">go</a>
+  </form>
+
+  Research:
+  <a href="http://mlb.mlb.com/mlb/fantasy/closers/y2011/index.jsp">closer report</a>, 
+  <a href="http://sports.yahoo.com/fantasy/mlb/news?slug=ys-expertpoll-11preseason1-top100">rankings</a>
+  <br>Columns:
+  <a href="http://fantasynews.cbssports.com/fantasybaseball/columns">CBSSports</a>
+  <br>Keepers: <a href="https://spreadsheets.google.com/ccc?key=0AkUDvCvNGue1dEVYdzFQVVFURW5NNFBocDJZWm95Nmc&hl=en#gid=0">spreadsheet</a>, <a href="https://spreadsheets.google.com/pub?hl=en&hl=en&key=0AkUDvCvNGue1dEVYdzFQVVFURW5NNFBocDJZWm95Nmc&output=html">public</a><a href="http://goo.gl/IJl18">[http://goo.gl/IJl18]</a><a href="http://goo.gl/info/IJl18">[info]</a>,
+  <a href="https://docs.google.com/document/pub?id=1s5DLhUZoZKfwl-Ljf01k_IIKVj7tukof20WALCk16_A">new teams</a><a href="http://goo.gl/uihLZ">[http://goo.gl/uihLZ]</a><a href="http://goo.gl/info/uihLZ">[info]</a>,
+  <a href="http://data.notuvy.com/playerRankings.html">rankings</a><a href="http://goo.gl/bFPRc">[http://goo.gl/bFPRc]</a><a href="http://goo.gl/info/bFPRc">[info]</a>
+  <form method="post"  action="http://baseball.fantasysports.yahoo.com/b1/42329/playersearch">
+    <label for="playersearchtext">Search By First or Last Name:</label><input type="text" name="search" value="">
+    <input type="submit" class="button" value="Find Player">
+  </form>
+
+<h2>Football: Kannan</h2>
+
+      <a href="http://football.fantasysports.yahoo.com/f1/1055785">League</a>
+      <a href="http://football.fantasysports.yahoo.com/f1/1055785/7">team</a>
+<!--      <a href="http://football.fantasysports.yahoo.com/f1/1055785/loadstattracker" target="stattracker_1861">StatTracker</a> -->
+
+  <form name="f" method="get" action="http://football.fantasysports.yahoo.com/f1/1055785/players">
+
+    <select name="status">
+      <option value="ALL" selected>All Players</option>
+      <option value="A">All Available Players</option>
+      <option value="7">Army Ants</option>
+      <option value="FA">Free Agents Only</option>
+      <option value="W">Waivers Only</option>
+      <option value="WL">My Watch List</option>
+      <option value="T">All Taken Players</option>
+    </select>          
+
+    <select name="pos">
+      <option value="O" selected>All Offense</option>
+      <option value="QB">QB</option>
+      <option value="WR">WR</option>
+      <option value="RB">RB</option>
+      <option value="TE">TE</option>
+      <option value="W/R/T">W/R/T</option>
+      <option value="K">K</option>
+      <option value="DEF">DEF</option>
+    </select>
+
+    <select name="stat1">
+      <option value="S_S_2016" selected>Season (total)</option>
+      <option value="S_AS_2016">Season (avg)</option>
+      <option value="S_W_1">Week 1</option>
+      <option value="S_PW_1">Week 1 (proj)</option>
+      <option value="S_W_2">Week 2</option>
+      <option value="S_PW_2">Week 2 (proj)</option>
+      <option value="S_W_3">Week 3</option>
+      <option value="S_PW_3">Week 3 (proj)</option>
+      <option value="S_W_4">Week 4</option>
+      <option value="S_PW_4">Week 4 (proj)</option>
+      <option value="S_W_5">Week 5</option>
+      <option value="S_PW_5">Week 5 (proj)</option>
+      <option value="S_W_6">Week 6</option>
+      <option value="S_PW_6">Week 6 (proj)</option>
+      <option value="S_W_7">Week 7</option>
+      <option value="S_PW_7">Week 7 (proj)</option>
+      <option value="S_W_8">Week 8</option>
+      <option value="S_PW_8">Week 8 (proj)</option>
+      <option value="S_W_9">Week 9</option>
+      <option value="S_PW_9">Week 9 (proj)</option>
+      <option value="S_W_10">Week 10</option>
+      <option value="S_PW_10">Week 10 (proj)</option>
+      <option value="S_W_11">Week 11</option>
+      <option value="S_PW_11">Week 11 (proj)</option>
+      <option value="S_W_12">Week 12</option>
+      <option value="S_PW_12">Week 12 (proj)</option>
+      <option value="S_W_13">Week 13</option>
+      <option value="S_PW_13">Week 13 (proj)</option>
+      <option value="S_W_14">Week 14</option>
+      <option value="S_PW_14">Week 14 (proj)</option>
+      <option value="S_W_15">Week 15</option>
+      <option value="S_PW_15">Week 15 (proj)</option>
+      <option value="S_W_16">Week 16</option>
+      <option value="S_PW_16">Week 16 (proj)</option>
+      <option value="S_W_17">Week 17</option>
+      <option value="S_PW_17">Week 17 (proj)</option>
+      <option value="S_PS_2013">Season (proj)</option>
+      <option value="S_PN4W">Next 4 Weeks (proj)</option>
+      <option value="S_PSR_2013">Remaining Games (proj)</option>
+      <option value="S_SPS_2013">Splits: Season</option>
+      <option value="S_SPC">Splits: Career</option>
+      <option value="K_K">Ranks</option>
+      <option value="O_O">Opponents</option>
+      <option value="R_S">Research</option>
+      <option value="M_M">Fantasy Matchups</option>
+      <option value="G_G">Game Day Calls</option>
+    </select>
+
+    <select name="sort">
+      <option value="PTS" selected>fpoints</option>
+      <option value="AR">Ranking</option>
+      <option value="4">Pass Yds</option>
+      <option value="5">Pass TDs</option>
+      <option value="9">Rush Yds</option>
+      <option value="10">Rush TDs</option>
+      <option value="12">Recv Yds</option>
+      <option value="13">Recv TDs</option>
+    </select>
+
+    <input type="submit" value="submit">
+  </form>
+  <a href="http://football.fantasysports.yahoo.com/f1/1055785/9/playernotes">player notes</a>
+  <form method="post"  action="http://football.fantasysports.yahoo.com/f1/1055785/playersearch">
+    <label for="playersearchtext">Search By First or Last Name:</label><input type="text" name="search" value="">
+    <input type="submit" class="button" value="Find Player">
+  </form>
+
+<h2>Football: Work</h2>
+
+      <a href="http://football.fantasysports.yahoo.com/f1/1232346">League</a>
+      <a href="http://football.fantasysports.yahoo.com/f1/1232346/4">team</a>
+<!--      <a href="http://football.fantasysports.yahoo.com/f1/1232346/loadstattracker" target="stattracker_1861">StatTracker</a> -->
+
+  <form name="f" method="get" action="http://football.fantasysports.yahoo.com/f1/1232346/players">
+
+    <select name="status">
+      <option value="ALL" selected>All Players</option>
+      <option value="A">All Available Players</option>
+      <option value="9">Mud Daubers</option>
+      <option value="FA">Free Agents Only</option>
+      <option value="W">Waivers Only</option>
+      <option value="WL">My Watch List</option>
+      <option value="T">All Taken Players</option>
+    </select>          
+
+    <select name="pos">
+      <option value="O" selected>All Offense</option>
+      <option value="QB">QB</option>
+      <option value="WR">WR</option>
+      <option value="RB">RB</option>
+      <option value="TE">TE</option>
+      <option value="W/R/T">W/R/T</option>
+      <option value="K">K</option>
+      <option value="DEF">DEF</option>
+    </select>
+
+    <select name="stat1">
+      <option value="S_S_2016" selected>Season (total)</option>
+      <option value="S_AS_2016">Season (avg)</option>
+      <option value="S_W_1">Week 1</option>
+      <option value="S_PW_1">Week 1 (proj)</option>
+      <option value="S_W_2">Week 2</option>
+      <option value="S_PW_2">Week 2 (proj)</option>
+      <option value="S_W_3">Week 3</option>
+      <option value="S_PW_3">Week 3 (proj)</option>
+      <option value="S_W_4">Week 4</option>
+      <option value="S_PW_4">Week 4 (proj)</option>
+      <option value="S_W_5">Week 5</option>
+      <option value="S_PW_5">Week 5 (proj)</option>
+      <option value="S_W_6">Week 6</option>
+      <option value="S_PW_6">Week 6 (proj)</option>
+      <option value="S_W_7">Week 7</option>
+      <option value="S_PW_7">Week 7 (proj)</option>
+      <option value="S_W_8">Week 8</option>
+      <option value="S_PW_8">Week 8 (proj)</option>
+      <option value="S_W_9">Week 9</option>
+      <option value="S_PW_9">Week 9 (proj)</option>
+      <option value="S_W_10">Week 10</option>
+      <option value="S_PW_10">Week 10 (proj)</option>
+      <option value="S_W_11">Week 11</option>
+      <option value="S_PW_11">Week 11 (proj)</option>
+      <option value="S_W_12">Week 12</option>
+      <option value="S_PW_12">Week 12 (proj)</option>
+      <option value="S_W_13">Week 13</option>
+      <option value="S_PW_13">Week 13 (proj)</option>
+      <option value="S_W_14">Week 14</option>
+      <option value="S_PW_14">Week 14 (proj)</option>
+      <option value="S_W_15">Week 15</option>
+      <option value="S_PW_15">Week 15 (proj)</option>
+      <option value="S_W_16">Week 16</option>
+      <option value="S_PW_16">Week 16 (proj)</option>
+      <option value="S_W_17">Week 17</option>
+      <option value="S_PW_17">Week 17 (proj)</option>
+      <option value="S_PS_2013">Season (proj)</option>
+      <option value="S_PN4W">Next 4 Weeks (proj)</option>
+      <option value="S_PSR_2013">Remaining Games (proj)</option>
+      <option value="S_SPS_2013">Splits: Season</option>
+      <option value="S_SPC">Splits: Career</option>
+      <option value="K_K">Ranks</option>
+      <option value="O_O">Opponents</option>
+      <option value="R_S">Research</option>
+      <option value="M_M">Fantasy Matchups</option>
+      <option value="G_G">Game Day Calls</option>
+    </select>
+
+    <select name="sort">
+      <option value="PTS" selected>fpoints</option>
+      <option value="AR">Ranking</option>
+      <option value="4">Pass Yds</option>
+      <option value="5">Pass TDs</option>
+      <option value="9">Rush Yds</option>
+      <option value="10">Rush TDs</option>
+      <option value="12">Recv Yds</option>
+      <option value="13">Recv TDs</option>
+    </select>
+
+    <input type="submit" value="submit">
+  </form>
+
+
+</body>
+</html>

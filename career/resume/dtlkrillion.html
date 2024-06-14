@@ -1,0 +1,140 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+  <title>Krillion Summary: Murali Krishnan</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <link rel="stylesheet" type="text/css" href="../main.css">
+  <link rel="stylesheet" type="text/css" href="resume.css">
+  <style>
+    li.finished {
+      text-decoration: line-through;
+    }
+  </style>
+</head>
+<body>
+
+<p class="workhead">Krillion Summary: Murali Krishnan</p>
+<p class="worksub">
+  <span class="jobtitle">Senior Engineer</span>,
+  <span class="daterange">February 2007 - present</span>
+</p>
+
+<p class="sectionhead">Overview</p>
+
+<p class="section">
+  I joined Krillion when the company totalled 12 people including 6
+  engineers.
+  My responsibility was with general back-end logic and various functional
+  areas.
+</p>
+
+<p class="section">
+  I was involved in several components of the back-end architecture.
+  I was the primary designer of the data engine.
+</p>
+
+<!-- BLOCK ------------------------------------------------------------ -->
+<p class="sectionhead">Framework Design and Data Architecture</p>
+
+<p class="sectionlabel">Data Processing Lifecycle</p>
+<p class="section">
+  I took ownership of the critical framework for processing the collected
+  raw data and creating the final rich data set at the core of all Krillion
+  products.
+  I transformed a sequence of manual steps into an automated process
+  I converted the original process of full data classification and streamlined
+  it to only process new data for each release.
+</p>
+
+<p class="sectionlabel">Classification Rules Engine</p>
+<p class="section">
+  I designed the rules-based expert system used to classify raw product data.
+  The custom design used Java regular expression logic along with domain
+  knowledge to convert raw records into identifiable objects.
+</p>
+
+<p class="sectionlabel">Data Comparison Logic</p>
+<p class="section">
+  I designed the system to compare current data snapshots to previous
+  release to measure data quality and regression.
+</p>
+
+<p class="sectionlabel">Cross-Correlation and Product Merging</p>
+<p class="section">
+  I designed the system where products referenced by UPC, Model Number,
+  Manufacturer Part Number, ASIN (Amazon ID), and title are merged.
+  This is a complicated problem where partially identified records are
+  combined to a normalized form.
+  This requires the detection and correction of erroneous records.
+  It also requires lookup of products in external systems (Amazon, Affiliate
+  records) to populate missing fields.
+</p>
+
+<p class="sectionlabel">Price Model</p>
+<p class="section">
+  I designed the datamodel for representing product prices.
+  This included the representation of current regular and sale prices, plus
+  historical prices.
+</p>
+
+<!-- BLOCK ------------------------------------------------------------ -->
+<p class="sectionhead">Functional Component Development</p>
+
+<p class="sectionlabel">Product Attributes</p>
+<p class="section">
+  I designed and implemented the framework for deduction and
+  classification of product attributes.
+  This is the complicated task of reading a product's title, description, and
+  specifications, and deducing all of it's properties.
+  A general framework needed to be defined so for any new product category
+  that is defined, the attributes could be quickly defined and the logic to
+  extract them could be easily implemented.
+</p>
+<p class="section">
+  This was a challenging exercise in recognizing patterns in ambiguous,
+  inconsistent data and consolidating information from multiple sources.
+</p>
+
+<p class="sectionlabel">Product Availability</p>
+<p class="section">
+  I designed and implemented the initial framework for performing live product
+  availability checking.
+  To check if a product is in stock, an HTTP request is performed for each
+  retailer that carries the product, and the result data (from the spider) is
+  processed and presented to the UI layer for display.
+</p>
+<p class="section">
+  The challenge in architecting this component is to design the API to the
+  UI layer that provides all the necessary functionality yet hides the
+  complexity (like handling of timeouts and other errors).
+</p>
+
+<p class="sectionlabel">Data File Sharing (DataBank)</p>
+<p class="section">
+  I designed the data repository for the intermediate steps of the
+  processing lifecycle.
+  This custom-designed component enabled multiple developers to
+  concurrently work on the data processing lifecycle.
+</p>
+<p class="section">
+  This component was key to seemless cooperation between the California
+  engineering team and the offshore (India) office.
+</p>
+
+
+<p class="sectionlabel">Application Intraspection (Scope)</p>
+<p class="section">
+  I introduced the concept of a monitoring and administration module
+  for the main web application.
+  This tool increased productivity by providing quick and convenient
+  access to internal application data for monitoring and general
+  investigation.
+</p>
+
+<!-- FOOTER ----------------------------------------------------------- -->
+<p class="copyright">&nbsp;</p>
+<p class="navreturn"><a class="nav" href="current.html">main resume</a></p>
+
+</body>
+</html>
+

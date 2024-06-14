@@ -1,0 +1,119 @@
+<html>
+<head>
+  <title>A Machine's Job</title>
+  <link rel="stylesheet" type="text/css" href="../main.css">
+  <link rel="stylesheet" type="text/css" href="essay.css">
+</head>
+<body>
+<h1>A Machine's Job</h1>
+
+<p>
+  There is an old saying that comes from several tradition cultures:
+  <span class="quote">Never send a boy to do a man's job.</span>
+  The point of this is there are some tasks for which skill and
+  maturity are required.
+  Whoever is assigned the work must be capable of it.
+</p>
+
+<p>
+  In my software development philosophy, I have adopted a variation of
+  this saying:
+  <span class="quote">Never send a man to do a machine's job.</span>
+  (Note that this statement preserves the gender-bias of the
+  original only in order to sound like a direct extension.
+  The gender is irrelevant to the point.
+  The word "human" here instead of "man" would be more apt.)
+</p>
+<p>
+  The point here is that there are some tasks that are not only
+  suitable for automation, but preferable.
+  Many everyday activities done during the course of software development
+  are a series of rote steps (e.g. compile a file, then copy the file,
+  then transfer the file).
+  Rather than having a person do these each time, an automated task can be
+  created.
+  The simplest tasks can be done by shell or batch scripts.
+  Tasks that need more parameterization or complex logic should probably
+  be done in a scripting language, like Perl or Ruby.
+  Tasks with even more complex logic will need to be developed in an
+  application programming language, like Java.
+</p>
+<p>
+  Any time a developer finds that an activity has been engaged in
+  multiple times, it is time to consider automating the task.
+  There are several reasons for this, which are further detailed below:
+  <ul>
+    <li>Reliability</li>
+    <li>Speed of Execution</li>
+    <li>Automatic Documentation</li>
+  </ul>
+  Of course, there is a cost incurred with automation.
+  Developing the automated process requires resources.
+  In most cases, the cost is recovered very quickly because of the
+  tangible benefits.
+  Only in the case where the process is infrequent and complex would
+  automation be ineffective (in which case, it is <b>not</b> a
+  machine's job).
+</p>
+
+<h2>Reliability</h2>
+<p class="section">
+  Anytime a human engages in repetitive activity, the likelihood of error
+  grows.
+  It increases both with the number of repetitions, and with the number
+  of steps within each cycle.
+  This is because the human mind disengages with repetition.
+  A person will be fully involved (mentally) during the first iteration.
+  With each subsequent iteration, the absorption in detail is diminished.
+  This is no defect; it is human nature.
+</p>
+
+<p class="section">
+  No such problem exist with automated processes.
+  A shell script works exactly the same each time it runs.
+  It is usually easy to automate a general case scenario.
+  To handle special cases and corner cases, either more complicated logic
+  could be added to the automaton, or the simple process could recognize
+  the case, abort, and let a human handle it.
+  This is still an improvement because the majority of the cases are handled
+  in the automatic manner, and the human will have sufficient engagement to
+  deal with the special case.
+</p>
+
+<h2>Speed of Execution</h2>
+<p class="section">
+  This is mostly self-explanatory.
+  An automated process in constant in both its speed of execution and the
+  quality of execution.
+  However, with a human these factors are in inverse proportion to each other.
+</p>
+
+<h2>Automatic Documentation</h2>
+<p class="section">
+  The ability for the automation script to actually serve as the documentation
+  for the process is a sometimes overlooked benefit.
+  If the process was a manual series of steps, then for one person to transfer
+  knowledge to another, it is necessary to document the steps.
+  However, if the process was automated, then the only aspect to document
+  is how to execute the automated process.
+  Anyone interested to know the details of the process can view the source
+  code for the automation.
+</p>
+<p class="section">
+  It is also important to note that this eliminates a synchronization
+  problem.
+  If a manual process was documented, then any change to the process would
+  render the documentation out of date (and usually incorrect documentation
+  is worse than missing documentation).
+  A self-documenting script will never have this problem, which is a tangible
+  improvement to process efficiency.
+</p>
+
+<p class="copyright">&copy;2006 Murali Krishnan</p>
+<p class="navreturn">
+  <a class="nav" href="index.html">essay index</a>
+  <a class="nav" href="../index.html">main index</a>
+</p>
+
+</body>
+</html>

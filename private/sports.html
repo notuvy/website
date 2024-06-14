@@ -1,0 +1,979 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <meta name="GENERATOR" content="Mozilla/4.05 [en] (X11; I; SunOS 5.5.1 sun4u) [Netscape]">
+    <title>Sports Links</title>
+
+    <script language="JavaScript">
+      function TeamPage(sport, teamsel, sitesel)
+      {
+	teamop = teamsel.options[teamsel.selectedIndex];
+	team = teamop.value;
+
+	siteop = sitesel.options[sitesel.selectedIndex];
+	site = siteop.value;
+
+	if(site == "yahoo") {
+	  target = "http://sports.yahoo.com/" + sport + "/teams/" + team + "/";
+	} else {
+	  target = "http://sports.espn.go.com/" + sport + "/clubhouse?team=" + team;
+	}
+
+	window.open(target, "_top");
+      }
+      function Nhl()
+      {
+        TeamPage("nhl", document.ynhl.team, document.ynhl.site);
+      }
+      function Nba()
+      {
+        TeamPage("nba", document.ynba.team, document.ynba.site);
+      }
+      function Mlb()
+      {
+        TeamPage("mlb", document.ymlb.team, document.ymlb.site);
+      }
+    function JumpTR(selection,sport) {
+    var tempIndex, selectedURL;
+    tempIndex = selection.selectedIndex;
+    selectedURL = sport + selection.options[tempIndex].value;
+    window.top.location.href = "http://www.sportingnews.com" + selectedURL;
+    }
+    </script>
+  </head>
+
+  <body>
+
+    <center>
+      <h1>Sports Links</h1>
+    </center>
+
+<!-- index
+    <table width="100%">
+      <tr align="left">
+	<td>
+	  Subsections: |
+	  <a href="#baseball">Baseball</a> |
+	  <a href="#hockey">Hockey</a> |
+	  <a href="#basketball">Basketball</a> |
+	  <a href="#football">Football</a> |
+	  <a href="#baseball">Baseball</a> |
+	  <a href="#columns">Columns</a> |
+	</td>
+      </tr>
+    </table>
+-->
+
+    <hr>
+
+    <p>
+      <center>
+      <a href="http://fantasysports.yahoo.com/">Yahoo Fantasy Sports</a>
+      </center>
+    </p>
+
+
+
+    <a name="baseball"></a>
+    <table width="100%">
+      <tr align="left" bgcolor="#ffffcc"><th colspan="2">Baseball</th></tr>
+      <tr valign="top">
+	<td width="50%">
+	  <ul>
+	    <li>
+	      <a href="http://www.majorleaguebaseball.com/">
+		Major League Baseball</a>
+	      <ul>
+		<li>
+		  <a href="http://baseball.espn.go.com/mlb/index">
+		    ESPN</a>
+		    <a href="http://baseball.espn.go.com/mlb/scoreboard">
+		    scores</a>
+		</li>
+		<li>
+		  <a href="http://sports.yahoo.com/mlb/">Yahoo</a>
+		  <a href="http://sports.yahoo.com/mlb/scoreboard/">scores</a>
+		</li>
+		<li>
+		  <a href="http://www.baseballprospectus.com/">
+		    Baseball Prospectus</a>
+		</li>
+		<li>
+		  <a href="http://www.baseballprimer.com/">
+		    Baseball Primer</a> |
+		  <a href="http://www.totalbaseball.com/">
+		    Total Baseball</a> |
+		  <a href="http://www.bigbadbaseball.com/">Big Bad Baseball</a> |
+		  <a href="http://www.maxbaseball.com/">MaxBaseball</a> |
+		  <a href="http://www.usatoday.com/sports/mlb.htm">
+		    USA Today</a> |
+		  <a href="http://www.usatoday.com/bbwfront.htm">
+		    Baseball Weekly</a> |
+		  <a href="http://www.stathead.com">Baseball Engineering</a> |
+		  <a href="http://www.baseball-links.com">Baseball Links</a> |
+		  <a href="http://www.baseball-reference.com">Baseball Reference</a>
+		</li>
+	      </ul>
+	    </li>
+	    <li>Fantasy
+	      <ul>
+		<li>Yahoo Private 
+		  <a href="http://standard.baseball.fantasysports.yahoo.com/b1/show?page=leaguehome&lid=50169&mid=3">League</a>.<br>
+                  Teams:
+		  <a href="http://standard.baseball.fantasysports.yahoo.com/b1/show?page=roster&lid=50169&mid=3&col=&type=&caps=1">murali</a>
+		  <a href="http://standard.baseball.fantasysports.yahoo.com/b1/show?page=roster&lid=50169&mid=13&col=&type=&caps=1">vaishali</a>
+		</li>
+		<li>
+		  Resources: 
+		  <a href="http://www.fanball.com/index.cfm/SCT.2">FanBall</a>
+                  [<a href="http://www.fanball.com/newsbreakers.cfm/SCT.2">news</a>],
+		  <a href="http://games.espn.go.com/cgi/flb/Request.dll?FRONTPAGE">ESPN</a>,
+		  <a href="http://fantasy.sportingnews.com/baseball/index.html">TSN</a>
+		</li>
+                <li>
+                  <form method="GET" action="http://standard.baseball.fantasysports.yahoo.com/b1/show">
+                    Stats:
+                    <select name="lid">
+                      <option value="50169">Private</option>
+                      <option value="118716">Public</option>
+                    </select>
+                    <select name="lpos">
+                      <option selected value="B">Batters</option>
+                      <option value="P">Pitchers</option>
+                      <option value="C">C</option>
+                      <option value="1B">1B</option>
+                      <option value="2B">2B</option>
+                      <option value="3B">3B</option>
+                      <option value="SS">SS</option>
+                      <option value="OF">OF</option>
+                      <option value="SP">SP</option>
+                      <option value="RP">RP</option>
+                    </select>
+                    <select name="type">
+                      <option selected value="S">Season</option>
+                      <option value="D30">Last Month</option>
+                      <option value="D7">Last Week</option>
+                    </select>
+                    <select name="avg">
+                       <option value="A">By Averages</option>
+                       <option value="">By Totals</option>
+                   </select>
+                    <select name="sort">
+                      <option value="R">Rank</option>
+                      <option value="0">GP</option>
+                      <option value="7">R</option>
+                      <option value="13">RBI</option>
+                      <option value="16">SB</option>
+                      <option value="23">TB</option>
+                      <option value="4">OBP</option>
+                      <option value="28">W</option>
+                      <option value="32">SV</option>
+                      <option value="42">K</option>
+                      <option value="26">ERA</option>
+                      <option value="27">WHIP</option>
+                      <option value="OR">O-Rank</option>
+                      <option value="NAME">Name</option>
+                    </select>
+                    <select name="page">
+                      <option value="takenplayers">Taken</option>
+                      <option value="availableplayers">Available</option>
+                    </select>
+                    <select name="on">
+                      <option value="">ALL</option>
+                      <option value="FA">Free Agents</option>
+                      <option value="W">Waivers</option>
+                      <option value=1>Nick</option>
+                      <option value=2>John</option>
+                      <option value=3>Murali</option>
+                      <option value=4>StealingHome</option>
+                      <option value=5>Kannan</option>
+                      <option value=6>Steinbrenner</option>
+                      <option value=7>LongBallz</option>
+                      <option value=8>Hitmen</option>
+                      <option value=9>George</option>
+                      <option value=10>Mick</option>
+                      <option value=11>Sean</option>
+                      <option value=12>Pedro</option>
+                      <option value=13>Vaishali</option>
+                    </select>
+                    <input type="text" size="4" name="count" value="">
+                    <input type=submit name=submit value="Go">
+                  </form>
+                </li>
+	      </ul>
+	    </li>
+	  </ul>
+	</td>
+	<td width="50%">
+	  <ul>
+	    <li>
+	      <b><a href="http://www.stlcardinals.com/">St. Louis Cardinals</a></b>
+
+	      <ul>
+		<li>
+		  <a href="http://apple.ease.lsoft.com/archives/cardinals.html">
+		    Mailing List Archive</a>
+		</li>
+		<li>
+		  <a href="http://sports.yahoo.com/mlb/teams/stl/">Yahoo</a> |
+		  <a href="http://sports.espn.go.com/mlb/clubhouse?team=stl">
+		    ESPN</a> |
+		  <a href="http://www.sportingnews.com/baseball/teams/cardinals/">
+		    TSN</a> |
+		  <a href="http://www.usatoday.com/sports/baseball/sbn/sbn14.htm">
+		    USA Today</a> |
+		  <a href="http://cnnsi.com/baseball/mlb/ml/teams/cardinals/">
+		    CNN/SI</a> |
+		  <a href="http://www.foxsports.com/js_index.frm?content=/baseball/teams/stl/">Fox Sports</a> |
+		  <a href="http://www.stltoday.com/stltoday/sports/stories.nsf/Cardinals">St. Louis Post Dispatch Sports</a>
+		</li>
+	      </ul>
+	    </li>
+
+	    <li>
+	      <FORM name="ymlb">
+
+		<select name="site">
+		  <OPTION value="yahoo">Yahoo</OPTION>
+		  <OPTION value="espn">Espn</OPTION>
+		</select>
+	        team:
+
+	        <SELECT name="team" OnChange="Mlb()">
+                  <option value="ana">Anaheim</option>
+                  <option value="ari">Arizona</option>
+                  <option value="atl">Atlanta</option>
+                  <option value="bal">Baltimore</option>
+                  <option value="bos">Boston</option>
+                  <option value="cha">Chicago Sox</option>
+                  <option value="chn">Chicago Cubs</option>
+                  <option value="cin">Cincinnati</option>
+                  <option value="cle">Cleveland</option>
+                  <option value="col">Colorado</option>
+                  <option value="det">Detroit</option>
+                  <option value="fla">Florida</option>
+                  <option value="hou">Houston</option>
+                  <option value="kan">Kansas City</option>
+                  <option value="los">Los Angeles</option>
+                  <option value="mil">Milwaukee</option>
+                  <option value="min">Minnesota</option>
+                  <option value="mon">Montreal</option>
+                  <option value="nyy">NY Yankees</option>
+                  <option value="nym">NY Mets</option>
+                  <option value="oak">Oakland</option>
+                  <option value="phi">Philadelphia</option>
+                  <option value="pit">Pittsburgh</option>
+                  <option value="sdg">San Diego</option>
+                  <option value="sfo">San Francisco</option>
+                  <option value="sea">Seattle</option>
+                  <option value="stl" selected>St. Louis</option>
+                  <option value="tam">Tampa Bay</option>
+                  <option value="tex">Texas</option>
+                  <option value="tor">Toronto</option>
+		</SELECT>
+
+		<INPUT type="button" name="go" value="go" OnClick="Mlb()">
+	      </FORM>
+	    </li>
+
+	  </ul>
+	</td>
+      </tr>
+    </table>
+
+
+
+    <a name="hockey"></a>
+    <table width="100%">
+      <tr align="left" bgcolor="#ffffcc"><th colspan="2">Hockey</th></tr>
+      <tr valign="top">
+	<td width="50%">
+	  <ul>
+	    <li>
+	      <a href="http://www.nhl.com/">NHL</a>
+              <a href="http://nhl.com/onthefly/scoreboard/index.html">scores</a>
+              <a href="http://nhl.com/intheslot/listen/radio/index.html">listen</a>
+	      <ul>
+		<li>
+                  Yahoo:
+		  <a href="http://sports.yahoo.com/nhl/">front</a>
+		  <a href="http://sports.yahoo.com/nhl/scoreboard/">scores</a>
+		</li>
+		<li>
+		  <a href="http://sports.espn.go.com/nhl/index">
+		    ESPN</a>
+		</li>
+	      </ul>
+	    </li>
+	    <li>Fantasy
+	      <ul>
+		<li>Yahoo
+		  <a href="http://hockey.fantasysports.yahoo.com/hockey/show?page=leaguehome&lid=63831&mid=3">League</a>,
+		  <a href="http://hockey.fantasysports.yahoo.com/hockey/show?page=roster&lid=63831&mid=3&col=&type=&caps=1">team</a><br>
+                  <form method="GET" action="http://hockey.fantasysports.yahoo.com/hockey/show">
+                    Stats:
+                    <input type="hidden" name="lid" value="63831">
+                    <select name="lpos">
+                      <option selected value="P">All</option>
+                      <option value="C">C</option>
+                      <option value="LW">LW</option>
+                      <option value="RW">RW</option>
+                      <option value="D">D</option>
+                      <option value="G">G</option>
+                    </select>
+                    <select name="type">
+                      <option selected value="S">Season</option>
+                      <option value="D30">Last Month</option>
+                      <option value="D7">Last Week</option>
+                    </select>
+                    <select name="sort">
+                      <option value="R">Rank</option>
+                      <option value="0">GP</option>
+                      <option value="1">G</option>
+                      <option value="2">A</option>
+                      <option value="4">+/-</option>
+                      <option value="5">PIM</option>
+                      <option value="8">PPP</option>
+                      <option value="12">GWG</option>
+                      <option value="19">W</option>
+                      <option value="23">GAA</option>
+                      <option value="26">SV%</option>
+                      <option value="27">SHO</option>
+                      <option value="OR">O-Rank</option>
+                      <option value="NAME">Name</option>
+                    </select>
+                    <select name="page">
+                      <option value="takenplayers">Taken</option>
+                      <option value="availableplayers">Available</option>
+                    </select>
+                    <input type="text" size="4" name="count" value="">
+                    <input type=submit name=submit value="Go">
+                  </form>
+		</li>
+		<li>
+		  Resources: 
+                  <a href="http://games.espn.go.com/cgi/fhl/request.dll?FRONTPAGE">ESPN</a>,
+                  <a href="http://sportsillustrated.cnn.com/fantasy/hockey/">CNNSI</a>,
+                  <a href="http://www.sportingnews.com/nhl/index.html">TSN</a>
+                  [<a href="http://www.sportingnews.com/nhl/depth/index.html">depth</a>]
+		</li>
+	      </ul>
+	    </li>
+	  </ul>
+	</td>
+	<td width="50%">
+	  <ul>
+	    <li>
+	      <b><a href="http://www.stlouisblues.com/">St. Louis Blues</a></b>
+
+	      <ul>
+		<li>
+		  <a href="http://sports.espn.go.com/nhl/clubhouse?team=stl">
+		    ESPN</a>
+		</li>
+		<li>
+		  <a href="http://sports.yahoo.com/nhl/teams/stl/">
+		    Yahoo</a>
+		</li>
+
+		<li>
+		  <a href="http://www.stltoday.com/stltoday/sports/stories.nsf/Blues">St. Louis Post Dispatch Sports</a>
+		</li>
+	      </ul>
+	    </li>
+
+	    <li>
+	      <b><a href="http://www.sj-sharks.com/">San Jose Sharks</a></b>
+	      <ul>
+		<li>
+		  <a href="http://sports.yahoo.com/nhl/teams/san/">
+		    Yahoo</a>
+		</li>
+	      </ul>
+	    </li>
+
+	    <li>
+	      <form name="ynhl">
+
+		<select name="site">
+		  <OPTION value="yahoo">Yahoo</OPTION>
+		  <OPTION value="espn">Espn</OPTION>
+		</select>
+	        team:
+
+		<select name="team" OnChange="Nhl()">
+		  <OPTION value="ana">Anaheim</OPTION>
+		  <OPTION value="atl">Atlanta</OPTION>
+		  <OPTION value="bos">Boston</OPTION>
+		  <OPTION value="buf">Buffalo</OPTION>
+		  <OPTION value="cgy">Calgary</OPTION>
+		  <OPTION value="car">Carolina</OPTION>
+		  <OPTION value="chi">Chicago</OPTION>
+		  <OPTION value="col">Colorado</OPTION>
+		  <OPTION value="cob">Columbus</OPTION>
+		  <OPTION value="dal">Dallas</OPTION>
+		  <OPTION value="det">Detroit</OPTION>
+		  <OPTION value="edm">Edmonton</OPTION>
+		  <OPTION value="fla">Florida</OPTION>
+		  <OPTION value="los">Los Angeles</OPTION>
+		  <OPTION value="min">Minnesota</OPTION>
+		  <OPTION value="mon">Montreal</OPTION>
+		  <OPTION value="nas">Nashville</OPTION>
+		  <OPTION value="njd">New Jersey</OPTION>
+		  <OPTION value="nyi">NY Islanders</OPTION>
+		  <OPTION value="nyr">NY Rangers</OPTION>
+		  <OPTION value="ott">Ottawa</OPTION>
+		  <OPTION value="phi">Philadelphia</OPTION>
+		  <OPTION value="pho">Phoenix</OPTION>
+		  <OPTION value="pit">Pittsburgh</OPTION>
+		  <OPTION value="san">San Jose</OPTION>
+		  <OPTION value="stl" SELECTED>St. Louis</OPTION>
+		  <OPTION value="tam">Tampa Bay</OPTION>
+		  <OPTION value="tor">Toronto</OPTION>
+		  <OPTION value="van">Vancouver</OPTION>
+		  <OPTION value="was">Washington</OPTION>
+		</select>
+		<input type="button" name="go" value="go" OnClick="Nhl()">
+	      </form>
+	    </li>
+	  </ul>
+	</td>
+      </tr>
+    </table>
+
+
+
+    <a name="basketball"></a>
+    <table width="100%">
+      <tr align="left" bgcolor="#ffffcc"><th colspan="2">Basketball</th></tr>
+      <tr valign="top">
+	<td width="50%">
+	  <ul>
+	    <li>
+	      <a href="http://www.nba.com">NBA</a>
+	      <ul>
+		<li>
+                  Yahoo:
+		  <a href="http://sports.yahoo.com/nba/">front</a>
+		  <a href="http://sports.yahoo.com/nba/scoreboard/">scores</a>
+		</li>
+		<li>
+                  ESPN:
+		  <a href="http://sports.espn.go.com/nba/index">front</a>
+		  <a href="http://sports.espn.go.com/nba/scoreboard">scores</a>
+		</li>
+		<li>
+                  SportsLine:
+                  <a href="http://www.sportsline.com/nba/">front</a>
+                  <a href="http://scores.sportsline.com/scoreboards/nba/">scores</a>
+		</li>
+		<li>
+                  Others:
+                  <a href="http://www.sportingnews.com/nba">TSN</a>
+                  <a href="http://www.cnnsi.com/basketball">CNNSI</a>
+		</li>
+	      </ul>
+	    </li>
+	    <li>Fantasy
+	      <ul>
+		<li>
+                  <table border="1">
+                    <tr>
+                      <th>League</th><th>home</th><th>team</th>
+                    </tr>
+                    <tr>
+                      <td>Mine</td>
+                      <td>
+                        <a href="http://basketball.fantasysports.yahoo.com/nba/show?page=leaguehome&lid=51061">League</a>
+                      </td>
+                      <td>
+                        <a href="http://basketball.fantasysports.yahoo.com/nba/show?page=roster&lid=51061&mid=1&col=&type=&caps=1">team</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Weekly</td>
+                      <td>
+                        <a href="http://basketball.fantasysports.yahoo.com/nba/show?page=leaguehome&lid=142997">League</a>
+                      </td>
+                      <td>
+                        <a href="http://basketball.fantasysports.yahoo.com/nba/show?page=roster&lid=142997&mid=6&col=&type=&caps=1">team</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="3">
+                  <form method="GET" action="http://basketball.fantasysports.yahoo.com/nba/show">
+                    Stats:
+                    <input type="hidden" name="lid" value="51061">
+                    <select name="lpos">
+                      <option selected value="P">All</option>
+                      <option value="PG">PG</option>
+                      <option value="SG">SG</option>
+                      <option value="SF">SF</option>
+                      <option value="PF">PF</option>
+                      <option value="C">C</option>
+                    </select>
+                    <select name="type">
+                      <option selected value="S">Season</option>
+                      <option value="D30">Last Month</option>
+                      <option value="D7">Last Week</option>
+                    </select>
+                    <select name="avg">
+                      <option value="A">Averages</option>
+                      <option value="">Totals</option>
+                    </select>
+                    <select name="sort">
+                      <option value="R">Rank</option>
+                      <option value="0">GP</option>
+                      <option value="4">FGM</option>
+                      <option value="5">FG%</option>
+                      <option value="7">FTM</option>
+                      <option value="8">FT%</option>
+                      <option value="10">3PTM</option>
+                      <option value="15">REB</option>
+                      <option value="16">AST</option>
+                      <option value="17">ST</option>
+                      <option value="18">BLK</option>
+                      <option value="OR">O-Rank</option>
+                      <option value="NAME">Name</option>
+                    </select>
+                    <select name="page">
+                      <option value="takenplayers">Taken</option>
+                      <option value="availableplayers">Available</option>
+                    </select>
+                    <input type="text" size="4" name="count" value="">
+                    <input type=submit name=submit value="Go">
+                  </form>
+                      </td>
+                    </tr>
+                  </table>
+                </li>
+		<li>
+                  Resources: 
+		  <a href="http://games.espn.go.com/cgi/fba/request.dll?FRONTPAGE">ESPN</a>,
+		  <a href="http://www.fanball.com/index.cfm/SCT.5">FanBall</a>
+		  [<a href="http://www.fanball.com/newsBreakers.cfm/SCT.5">news</a>]
+                  <a href="http://sportsillustrated.cnn.com/fantasy/basketball/">CNNSI</a>
+		</li>
+	      </ul>
+	    </li>
+	  </ul>
+	</td>
+	<td width="50%">
+	  <ul>
+	  <li>
+	    <b><a href="http://www.nba.com/warriors/">Golden State Warriors</a></b>
+	    <ul>
+	      <li>
+		<a href="http://sports.espn.go.com/nba/clubhouse?team=gsw">
+		  ESPN</a>,
+		  <a href="http://sports.espn.go.com/nba/teamsched?team=gsw">schedule</a>
+	      </li>
+	      <li>
+		<a href="http://sports.yahoo.com/nba/teams/gsw/">
+		  Yahoo</a>
+	      </li>
+	      <li>
+	        <a href="http://www.bayarea.com/category/sports_and_recreation/basketball/golden_state_warriors/">BayArea.com</a>
+	      </li>
+	      <li>
+	        <a href="http://www.sfgate.com/sports/warriors/">Chronicle</a>,
+	        <a href="http://www.sfgate.com/sports/warriors/schedule.shtml">schedule</a>
+	      </li>
+	      <li>
+                KNBR
+                <a href="http://www.broadcast.com/radio/sports/knbr/" target="_new">listen</a>
+	      </li>
+	    </ul>
+	  </li>
+
+	    <li>
+	      <FORM name="ynba">
+
+		<select name="site">
+		  <OPTION value="yahoo">Yahoo</OPTION>
+		  <OPTION value="espn">Espn</OPTION>
+		</select>
+	        team:
+
+	        <SELECT name="team" OnChange="Nba()">
+		  <OPTION value="atl">Atlanta</option>
+		  <OPTION value="bos">Boston</option>
+		  <OPTION value="cha">Charlotte</option>
+		  <OPTION value="chi">Chicago</option>
+		  <OPTION value="cle">Cleveland</option>
+		  <OPTION value="dal">Dallas</option>
+		  <OPTION value="den">Denver</option>
+		  <OPTION value="det">Detroit</option>
+		  <OPTION value="gsw" SELECTED>Golden State</option>
+		  <OPTION value="hou">Houston</option>
+		  <OPTION value="ind">Indiana</option>
+		  <OPTION value="lac">LA Clippers</option>
+		  <OPTION value="lal">LA Lakers</option>
+		  <OPTION value="mem">Memphis</option>
+		  <OPTION value="mia">Miami</option>
+		  <OPTION value="mil">Milwaukee</option>
+		  <OPTION value="min">Minnesota</option>
+		  <OPTION value="njn">New Jersey</option>
+		  <OPTION value="nyk">New York</option>
+		  <OPTION value="orl">Orlando</option>
+		  <OPTION value="phi">Philadelphia</option>
+		  <OPTION value="pho">Phoenix</option>
+		  <OPTION value="por">Portland</option>
+		  <OPTION value="sac">Sacramento</option>
+		  <OPTION value="sas">San Antonio</option>
+		  <OPTION value="sea">Seattle</option>
+		  <OPTION value="tor">Toronto</option>
+		  <OPTION value="uth">Utah</option>
+		  <OPTION value="was">Washington</option>
+		</SELECT>
+
+		<INPUT type="button" name="go" value="go" OnClick="Nba()">
+	      </FORM>
+	    </li>
+	</ul>
+	</td>
+      </tr>
+      <tr valign="top">
+	<td width="50%">
+	  <ul>
+	    <li>
+	      NCAA
+	      <ul>
+	        <li>
+		  <a href="http://sports.espn.go.com/ncb/index">
+		    ESPN</a>,
+                    <a href="http://games.espn.go.com/tcmen/frontpage">tournament</a>
+		</li>	 
+	        <li>
+		  <a href="http://sports.yahoo.com/ncaab">
+		    Yahoo</a>,
+		    <a href="http://sports.yahoo.com/ncaab/scoreboard/">scores</a>
+                    <a href="http://tournament.fantasysports.yahoo.com/men/show?page=group&gid=21267&tid=140008">tournament</a>
+		</li>
+		<li>
+                  <a href="http://sports.yahoo.com/ncaab/rankings/ratings.html">Rankings</a>
+                </li>
+	      </ul>
+	    </li>
+	  </ul>
+	</td>
+	<td>
+	  <ul>
+	  <li>
+	    <b><a href="http://fightingillini.fansonly.com/sports/m-baskbl/ill-m-baskbl-body.html">UIUC men's basketball</a></b>
+	    <ul>
+	      <li>
+	        <a href="http://college.espn.go.com/ncf/clubhouse?collegeId=356">ESPN</a>
+	      </li>
+	      <li>
+	        <a href="http://sports.yahoo.com/ncaab/teams/iae/">
+		Yahoo</a>
+	      </li>
+	    </ul>
+	  </li>
+	  </ul>
+	</td>
+      </tr>
+    </table>
+
+
+
+    <a name="football"></a>
+    <table width="100%">
+      <tr align="left" bgcolor="#ffffcc"><th colspan="2">Football</th></tr>
+      <tr valign="top">
+	<td width="50%">
+	  <ul>
+	    <li>
+	      <a href="http://www.nfl.com/">NFL</a>
+	      <ul>
+		<li>
+                  Yahoo:
+		  <a href="http://sports.yahoo.com/nfl/">front</a>
+		  <a href="http://sports.yahoo.com/nfl/scoreboard/">scores</a>
+		</li>
+		<li>
+		  <a href="http://football.espn.go.com/nfl/index">
+		    ESPN</a>
+		</li>
+	      </ul>
+	    </li>
+	    <li>Fantasy
+	      <ul>
+		<li>
+                  <table border="1">
+                    <tr>
+                      <th>League</th><th>home</th><th>activity</th><th>teams</th>
+                    </tr>
+                    <tr>
+                      <td>Murali</td>
+                      <td align="center">
+                        <a href="http://standard.football.fantasysports.yahoo.com/f1/show?page=leaguehome&lid=217357&mid=1"><img border="0" src="images/smalldot.gif"></a>
+                      </td>
+                      <td align="center">
+                        <a href="http://standard.football.fantasysports.yahoo.com/f1/show?page=transactions&lid=217357"><img border="0" src="images/smalldot.gif"></a>
+                      </td>
+                      <td>
+                        <a href="http://standard.football.fantasysports.yahoo.com/f1/show?page=roster&lid=217357&mid=1">murali</a> |
+                  <a href="http://standard.football.fantasysports.yahoo.com/f1/show?page=roster&lid=217357&mid=5">vaishali</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Kannan</td>
+                      <td align="center">
+                        <a href="http://standard.football.fantasysports.yahoo.com/f1/show?page=leaguehome&lid=13690&mid=2"><img border="0" src="images/smalldot.gif"></a>
+                      </td>
+                      <td align="center">
+                        <a href="http://standard.football.fantasysports.yahoo.com/f1/show?page=transactions&lid=13690"><img border="0" src="images/smalldot.gif"></a>
+                      </td>
+                      <td>
+                        <a href="http://standard.football.fantasysports.yahoo.com/f1/show?page=roster&lid=13690&mid=2">murali</a> |
+                  <a href="http://standard.football.fantasysports.yahoo.com/f1/show?page=roster&lid=13690&mid=10">vaishali</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Rom</td>
+                      <td align="center">
+                        <a href="http://standard.football.fantasysports.yahoo.com/f1/show?page=leaguehome&lid=14082&mid=2"><img border="0" src="images/smalldot.gif"></a>
+                      </td>
+                      <td align="center">
+                        <a href="http://standard.football.fantasysports.yahoo.com/f1/show?page=transactions&lid=14082"><img border="0" src="images/smalldot.gif"></a>
+                      </td>
+                      <td>
+                        <a href="http://standard.football.fantasysports.yahoo.com/f1/show?page=roster&lid=14082&mid=2">murali</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="4" align="center">
+                        <a href="fnfl.html">forms</a>
+                      </td>
+                    </tr>
+                  </table>
+		</li>
+		<li>
+		  Resources: 
+		  <a href="http://www.fanball.com/web/fb/index.cfc">FanBall</a> [<a href="http://www.fanball.com/web/fb/content/newsBrk.cfc">news</a>],
+                  <a href="http://games.espn.go.com/cgi/ffl/frontpage">ESPN</a>,
+                  <a href="http://sportsillustrated.cnn.com/fantasy/football/">CNNSI</a>,
+		  <a href="http://fantasy.sportingnews.com/nfl/">TSN</a>
+		</li>
+		<li>
+                  <a href="fnfl.html">forms</a>
+		</li>
+	      </ul>
+	    </li>
+	  </ul>
+	</td>
+	<td width="50%">
+	  <ul>
+	    <li>
+	      <b><a href="http://www.stlouisrams.com/">St. Louis Rams</a></b>
+	      <ul>
+		<li>
+		  <a href="http://sports.yahoo.com/nfl/teams/stl/">Yahoo</a> |
+		  <a href="http://football.espn.go.com/nfl/clubhouse?team=stl">
+		    ESPN</a>
+		</li>
+		<li>
+		  <a href="http://www.stltoday.com/stltoday/sports/stories.nsf/Rams">St. Louis Post Dispatch Sports</a>
+		</li>
+	      </ul>
+	    </li>
+	  </ul>
+	  <ul>
+            <li>
+              <a href="http://fightingillini.fansonly.com/sports/m-footbl/ill-m-footbl-body.html">UIUC Men's Football</a>
+              <ul>
+                <li>
+                  <a href="http://sports.yahoo.com/ncaaf/teams/iic/">Yahoo</a>
+                </li>
+              </ul>
+            </li>
+	  </ul>
+	</td>
+      </tr>
+    </table>
+
+
+
+
+    <a name="columns"></a>
+    <table width="100%">
+      <tr align="left" bgcolor="#ffffcc"><th>Columns</th></tr>
+    </table>
+
+    <p>
+      <a href="http://espn.go.com/mlb/columns/neyer_rob/">
+        Rob Neyer, ESPN</a> |
+      <a href="http://www.stltoday.com/stltoday/sports/columns.nsf/Bernie%20Miklasz?openview&Start=2&count=500">
+        Bernie Miklasz, St. Louis Post Dispatch</a> |
+      <a href="http://cnnsi.com/inside_game/archives/frank_deford/index.html">
+        Frank Deford, Sports Illustrated</a> |
+      <a href="http://espn.go.com/gammons/index.html">
+        Peter Gammons, ESPN</a>
+    </p>
+
+
+
+
+    <a name="columns"></a>
+    <table width="100%">
+      <tr align="left" bgcolor="#ffffcc"><th>Resources</th></tr>
+    </table>
+
+    <ul>
+      <li>
+        <form>
+	The Sporting News:
+          <select class=SELECTBOX OnChange="JumpTR(this,'/nba/teams/')" name="sport">
+            <option value=>NBA</option>
+
+            <option value=hawks>ATL</option>
+            <option value=celtics>BOS</option>
+            <option value=hornets>CHA</option>
+            <option value=bulls>CHI</option>
+            <option value=cavaliers>CLE</option>
+            <option value=mavericks>DAL</option>
+            <option value=nuggets>DEN</option>
+            <option value=pistons>DET</option>
+            <option value=warriors>GSW</option>
+            <option value=rockets>HOU</option>
+            <option value=pacers>IND</option>
+            <option value=clippers>LAC</option>
+            <option value=lakers>LAL</option>
+            <option value=heat>MIA</option>
+            <option value=bucks>MIL</option>
+            <option value=timberwolves>MIN</option>
+            <option value=nets>NJN</option>
+            <option value=knicks>NYK</option>
+            <option value=magic>ORL</option>
+            <option value=76ers>PHI</option>
+            <option value=suns>PHO</option>
+            <option value=trailblazers>POR</option>
+            <option value=kings>SAC</option>
+            <option value=spurs>SAS</option>
+            <option value=supersonics>SEA</option>
+            <option value=raptors>TOR</option>
+            <option value=jazz>UTH</option>
+            <option value=grizzlies>VAN</option>
+            <option value=wizards>WAS</option>
+          </select>
+          <select class=SELECTBOX OnChange="JumpTR(this,'/nhl/teams/')" name="sport">
+            <option value=>NHL</option>
+
+            <option value=mightyducks>ANA</option>
+            <option value=thrashers>ATL</option>
+            <option value=bruins>BOS</option>
+            <option value=sabres>BUF</option>
+            <option value=flames>CAL</option>
+            <option value=hurricanes>CAR</option>
+            <option value=blackhawks>CHI</option>
+            <option value=bluejackets>COB</option>
+            <option value=avalanche>COL</option>
+            <option value=stars>DAL</option>
+            <option value=redwings>DET</option>
+            <option value=oilers>EDM</option>
+            <option value=panthers>FLA</option>
+            <option value=kings>LA</option>
+            <option value=wild>MIN</option>
+            <option value=canadiens>MON</option>
+            <option value=predators>NAS</option>
+            <option value=devils>NJ</option>
+            <option value=islanders>NYI</option>
+            <option value=rangers>NYR</option>
+            <option value=senators>OTT</option>
+            <option value=flyers>PHI</option>
+            <option value=coyotes>PHO</option>
+            <option value=penguins>PIT</option>
+            <option value=sharks>SJ</option>
+            <option value=blues>STL</option>
+            <option value=lightning>TB</option>
+            <option value=mapleleafs>TOR</option>
+            <option value=canucks>VAN</option>
+            <option value=capitals>WAS</option>
+          </select>
+          <select class=SELECTBOX OnChange="JumpTR(this,'/nfl/teams/')" name="sport">
+            <option value= >NFL</option>
+
+            <option value=cardinals>ARI</option>
+            <option value=falcons>ATL</option>
+            <option value=ravens>BAL</option>
+            <option value=bills>BUF</option>
+            <option value=panthers>CAR</option>
+            <option value=bears>CHI</option>
+            <option value=bengals>CIN</option>
+            <option value=browns>CLE</option>
+            <option value=cowboys>DAL</option>
+            <option value=broncos>DEN</option>
+            <option value=lions>DET</option>
+            <option value=packers>GB</option>
+            <option value=colts>IND</option>
+            <option value=jaguars>JAC</option>
+            <option value=chiefs>KC</option>
+            <option value=dolphins>MIA</option>
+            <option value=vikings>MIN</option>
+            <option value=patriots>NE</option>
+            <option value=saints>NO</option>
+            <option value=giants>NYG</option>
+            <option value=jets>NYJ</option>
+            <option value=raiders>OAK</option>
+            <option value=eagles>PHI</option>
+            <option value=steelers>PIT</option>
+            <option value=chargers>SD</option>
+            <option value=seahawks>SEA</option>
+            <option value=49ers>SF</option>
+            <option value=rams>STL</option>
+            <option value=buccaneers>TB</option>
+            <option value=titans>TEN</option>
+            <option value=redskins>WAS</option>
+          </select>
+          <select class=SELECTBOX OnChange="JumpTR(this,'/baseball/teams/')" name="sport">
+            <option value=>MLB</option>
+
+            <option value=angels>ANA</option>
+            <option value=diamondbacks>ARI</option>
+            <option value=braves>ATL</option>
+            <option value=orioles>BAL</option>
+            <option value=redsox>BOS</option>
+            <option value=whitesox>CHA</option>
+            <option value=cubs>CHN</option>
+            <option value=reds>CIN</option>
+            <option value=indians>CLE</option>
+            <option value=rockies>COL</option>
+            <option value=tigers>DET</option>
+            <option value=marlins>FLA</option>
+            <option value=astros>HOU</option>
+            <option value=royals>KAN</option>
+            <option value=dodgers>LOS</option>
+            <option value=brewers>MIL</option>
+            <option value=twins>MIN</option>
+            <option value=expos>MON</option>
+            <option value=mets>NYM</option>
+            <option value=yankees>NYY</option>
+            <option value=athletics>OAK</option>
+            <option value=phillies>PHI</option>
+            <option value=pirates>PIT</option>
+            <option value=padres>SDG</option>
+            <option value=mariners>SEA</option>
+            <option value=giants>SFO</option>
+            <option value=cardinals>STL</option>
+            <option value=devilrays>TAM</option>
+            <option value=rangers>TEX</option>
+            <option value=bluejays>TOR</option>
+          </select>
+
+        </form>
+      </li>
+    </ul>
+
+
+
+  <table width="100%" border="0">
+    <tr align="left" bgcolor="#ffee99">
+      <td><a href="index.html">home</a></td>
+      <td align="right"><a href="mailto:murali24@hotmail.com">feedback</a></td>
+    </tr>
+  </table>
+
+  </body>
+</html>

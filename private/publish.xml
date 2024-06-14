@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FtpFileScript>
+
+  <Entry>
+    <Action>put</Action>
+    <Local>.</Local>
+    <Remote>home@ftp.notuvy.com:httpdocs</Remote>
+  </Entry>
+
+  <Entry>
+    <Action>put</Action>
+    <Local>images</Local>
+    <Remote>home@ftp.notuvy.com:httpdocs/images</Remote>
+  </Entry>
+
+</FtpFileScript>

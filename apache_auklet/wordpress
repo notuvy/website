@@ -1,0 +1,29 @@
+
+<VirtualHost *:80>
+	ServerAdmin webmaster@localhost
+
+	DocumentRoot /var/www/wordpress
+	ServerName snipfolio.com
+	ServerAlias www.snipfolio.com
+
+        # These redirects can be removed eventually.
+        Redirect permanent  /oauth.html  /docs/identifying-yourself-securely/
+        Redirect permanent  /download.html  http://download.snipfolio.com/doc/download.html
+        Redirect permanent  /download/version.txt  http://download.snipfolio.com/latest/version.txt
+        Redirect permanent  /download/snipfolio-desktop-1.0.0-full.jar  http://download.snipfolio.com/latest/snipfolio-desktop-1.0.0-full.jar
+        Redirect permanent  /alphatest.html  http://download.snipfolio.com/doc/alphatest.html
+        Redirect permanent  /more.html  http://download.snipfolio.com/doc/more.html
+	<Directory /var/www/wordpress/>
+		Options FollowSymLinks
+		AllowOverride All
+	</Directory>
+
+	ErrorLog ${APACHE_LOG_DIR}/snipfolio/error.log
+
+	# Possible values include: debug, info, notice, warn, error, crit,
+	# alert, emerg.
+	LogLevel warn
+
+	CustomLog ${APACHE_LOG_DIR}/snipfolio/access.log combined
+
+</VirtualHost>

@@ -1,0 +1,217 @@
+
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<base href="http://messaging.sprintpcs.com/">
+<title>SprintPCS 2Way SMS</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+<script language="JavaScript" type="text/javascript" src="/scripts/pop.js" ></script>
+<script language="JavaScript" type="text/javascript" src="/scripts/sms.js" ></script>
+<script src="http://style.sprintpcs.com/scripts/flash.js" type="text/javascript"></script>
+<link rel="stylesheet" href="http://style.sprintpcs.com/common.css" type="text/css" media="all" /><!--  [media="all"] must be in here to hide CSS from NS 4 -->
+<link rel="stylesheet" href="http://style.sprintpcs.com/print.css" type="text/css" media="print" /><!--  [media="print"] must be in here to hide CSS from NS 4 -->
+<link rel="stylesheet" href="/styles/sms.css" type="text/css" media="all" /><!-- Project-specific CSS, call after global CSS -->
+
+
+<base href="http://messaging.sprintpcs.com/textmessaging/">
+</head>
+
+
+<body id="section0">
+<span class="hide">Scroll to <a href="#bodyArea">Main content</a>, <a href="#navI">Navigation</a></span>
+<hr class="hide" />
+
+
+
+
+
+
+
+   <div id="brand"><a href="https://manage1.sprintpcs.com/Manage?layer=0&target=Header&action=sprint"><img src="https://manage1.sprintpcs.com/media/Assets/Images/topNav-logo.gif" width="264" height="60" border="0" /></a></div><hr class="hide" /><div class="hide"><strong>Note:</strong> Because you are using an outdated browser, you may only view the raw textual content of this site. In order to view, use, and enjoy this site to the fullest at the maximum security level, please refer to our <a href="http://www.sprintpcs.com/upgrade.html">Browser Upgrade</a> page to view a list of browsers that support web standards. </div><hr class="hide" /><div id="navI"><div id="navIa"><a href="https://manage1.sprintpcs.com/Manage?layer=0&target=Header&action=headerSprint">&nbsp;<span>Sprint.com</span></a></div><div id="navIb"><a href="https://manage1.sprintpcs.com/Manage?layer=0&target=Header&action=headerPersonal">&nbsp;<span>Personal</span></a></div><div id="navIc"><a href="https://manage1.sprintpcs.com/Manage?layer=0&target=Header&action=headerBusiness">&nbsp;<span>Business</span></a></div><div id="navId"><a href="https://manage1.sprintpcs.com/Manage?layer=0&target=Header&action=headerAbout">&nbsp;<span>About Sprint</span></a></div></div><div id="navII"></div>
+
+
+<div id="surround">
+	<div id="nowrap">
+		<h5 class="hide">Section links:</h5>    
+		
+		
+		
+		
+
+
+
+
+
+<div id="nonNav">
+		<hr class="hide" />
+<div class="basicBox">
+			<form name="loginForm" action="https://manage1.sprintpcs.com/Manage" method="post">
+			<input value="doLogin" type="hidden" name="action" />
+			<input value="Login" type="hidden" name="target" />
+			<h2 id="customerSignOn"><span>Customer Sign On</span></h2>
+			<div class="buffer">
+				<ul>
+
+					<li>Check usage, view &amp; pay your invoice, change your plan</li>
+					<li>Find &amp; organize PCS Vision<sup>SM</sup> content, like games &amp; ringers</li>
+				</ul>
+
+				<div class="formGroupA">
+					<label for="pcsPhoneNumber">PCS Phone Number:</label>
+					<input class="text" id="pcsPhoneNumber" name="min" type="text" style="width:110px" />
+				</div>
+				<div class="formGroupA">
+					<label for="Password">Password:</label>
+					<input class="text" id="Password" name="password" type="password" style="width:110px" />
+				</div>
+
+				<div class="formGroupA">
+					<a href="https://manage1.sprintpcs.com/Manage" onmouseover="window.status='Sign On';return true" onmouseout="window.status='';return true" onfocus="if(this.blur)this.blur()" onclick="document.loginForm.submit(); return false"><img src="/media/Assets/Images/bt-signOn.gif" value="Sign on" /></a>
+				</div>
+			</div>
+			</form>
+			<div class="clear"></div>
+		</div>
+		<div class="botLeft"><div class="botRight">&nbsp;</div></div>
+	</div>
+
+	<hr class="hide" />
+<div id="bodyArea">
+	<div class="twoColb">
+		<h1><span>Compose a Message</span></h1>
+		
+
+
+
+
+	
+	
+	<div class="med">
+	
+		
+
+		<form  action="composeconfirm" method="post" focus="phoneNumber" name="composeForm">
+
+		<div class="formGroupA ">
+
+			<label for="phoneNumber">
+
+				Send to this PCS Phone Number:
+
+			</label>
+            <input  id="randomToken" name="randomToken" type="hidden" value="" />
+
+			<input class="text" id="phoneNumber" name="phoneNumber" type="text" value="" size="14" maxlength="14" onfocus="countCharacters(document.composeForm.message, document.composeForm.characters,160)" />
+            <script type="text/javascript">document.composeForm.phoneNumber.focus();</script>
+
+		</div>
+
+		<div class="formGroupA ">
+
+			<label for="message">
+
+				Message:
+
+			</label>
+
+			<textarea id="message" name="message" onkeyup="countCharacters(document.composeForm.message, document.composeForm.characters,160)"></textarea>
+
+			<input readonly class="inline" id="characters" name="characters" size="3" type="text" value="160" tabindex="-1" />
+
+			<label class="inline muted" for="characters">
+
+				characters remaining
+
+			</label>
+
+		</div>
+
+		<div class="formGroupA ">
+
+			<label for="CallBackNumber">
+
+			Callback number:
+
+			</label>
+
+			<input class="text" id="callBackNumber" name="callBackNumber" type="text" value="" size="10"  maxlength="10" />
+
+		</div>
+
+		<div class="formGroupA">
+
+			<input type="image" value="Send" src="/media/Assets/Images/bt-send.gif" />
+
+		</div>
+			
+		</font>
+		</form>
+
+	</div>
+
+
+		
+
+	<div class="thin">
+	<div class="basicBox">
+		<form action="trackresults" method="post">
+
+		<h2 id="trackAnotherMessage"><span>Track Another Message</span></h2>
+
+		<div class="buffer">
+			<p>If you have a tracking number for a message you sent, you can check the status of that message here.</p>
+			<div class="formGroupA">
+				<label for="TrackingNumber">Tracking Number:</label>
+				<input class="text" id="TrackingNumber" name="trackNumber" type="text" style="width:80px" />
+			</div>
+
+			<div class="formGroupA">
+				<input type="image" value="Track" src="/media/Assets/Images/bt-track.gif" />
+			</div>
+		</div>
+		
+		</form>
+		<div class="clear"></div>
+
+	</div>
+
+	<div class="botLeft"><div class="botRight">&nbsp;</div></div>
+	</div>
+		
+	</div>
+	<div class="clear"></div>
+</div>
+
+		
+	</div>
+	<hr class="hide" />
+
+	<!-- Begin Footer Bar -->
+		
+
+<script language=Javascript>
+function popUp2(page, name, w, h, scroll) {
+var winl = (screen.width - w) / 2;
+ var wint = (screen.height - h) / 2;
+ var winprop  = 'height='+h+',width='+w+',top='+wint+',left='+winl+',scrollbars='+scroll+',resizable';
+ win = window.open(page, name, winprop);
+ return false;
+}
+</script><div id="footer"><p><a href="https://manage1.sprintpcs.com/html/popContact-m.html" onclick="popUp2(this.href,'fas','590','540','yes'); return false;" class="gref" onmouseover="window.status='Contact Us'; return true" onmouseout="window.status=''; return true">Contact Us</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://www1.sprintpcs.com/support/findAnswers/fas/StoreLocator.jsp?FOLDER%3C%3Efolder_id=817691" class="gref" onclick="popUp2(this.href, 'fas','300','450','yes');return false;" onmouseover="window.status='Find a Store'; return true" onmouseout="window.status=''; return true">Find a Sprint Store</a></p><p>&copy; 1998-2003 Sprint Spectrum&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://www1.sprintpcs.com/explore/include/legalTermsPrivacy.jsp#6" class="gref" onmouseover="window.status='Security &amp; Privacy'; return true" onmouseout="window.status=''; return true">Security &amp; Privacy</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://www1.sprintpcs.com/explore/include/legalTermsPrivacy.jsp" class="gref" onmouseover="window.status='Terms &amp; Conditions'; return true" onmouseout="window.status=''; return true">Terms &amp; Conditions</a></p></div>
+
+	<!-- End Footer Bar -->
+</div>
+<hr class="hide" />
+<script src="http://style.sprintpcs.com/scripts/flashFoot.js" type="text/javascript"></script>
+
+
+</body>
+</html>

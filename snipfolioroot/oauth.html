@@ -1,0 +1,92 @@
+<html>
+<head>
+  <title>SnipFolio</title>
+  <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+<h1>SnipFolio</h1>
+<h2>Identifying Yourself Securely</h2>
+
+<p>
+In order to access your central lists (the data shared between systems),
+the Central Server needs to know exactly who you are.
+It needs to give the data that belongs to you, while being sure you are
+not being impersonated.
+</p>
+<p>
+The usual way of doing this is by creating a login to the system.
+This means you need to create a username and password to access your data.
+You probably already have more system logins than you can even remember.
+SnipFolio takes a different (and more modern) approach.
+</p>
+<p>
+Instead of making you create <em>another</em> login, SnipFolio makes use
+of a framework called <a href="http://en.wikipedia.org/wiki/OAuth">OAuth</a> 
+that allows you to login to a well-known system
+(like Google, Facebook, Hotmail, etc.) to identify who you are, and then let
+that system notify SnipFolio that you are who you say you are (because they
+know for sure).
+</p>
+
+<h3>How it works</h3>
+<p>
+Here is a description of how it all works.
+<ol>
+  <li>You choose which system you want to use to identify yourself.</li>
+  <li>SnipFolio will launch a browser page to the system that you choose.</li>
+  <li>If you are not already logged in to that system, you will be asked to enter your username/password (note that you are giving it to them, not SnipFolio).</li>
+  <li>Once you are in that system, it tells you that SnipFolio wants to know what your email address is, and whether you approve.</li>
+  <li>After you approve, that system notifies SnipFolio that you are who you say you are, and SnipFolio then gets your email address.</li>
+  <li>SnipFolio identifies you by that email address and access or activates your account.</li>
+  <li>You go back to your SnipFolio client and tell it to connect to the Central Server, who now know who you are.</li>
+  <li>Your central lists are now available.</li>
+</ol>
+</p>
+
+<h3>Why this approach</h3>
+<p>
+First, this should be a more convenient way to identify yourself for several
+reasons.
+<ul>
+  <li>You do not have to type in your email address because SnipFolio gets it from the service you authorized.</li>
+  <li>You do not have to type it in again because we got it accurately (you cannot mistype if if you did not have to type it in the first place).</li>
+  <li>You do not need to write down yet another username/password.  No need to re-invent the wheel.</li>
+  <li>You do not have to create security questions in case you forget your login/password.</li>
+  <li>You do not have to look at a hard-to-read <a href="http://en.wikipedia.org/wiki/Captcha">CAPTCHA</a> image and type in what you think it is.  The system you are identifying with already had you do that once, probably when you first created that account.</li>
+</ul>
+</p>
+<p>
+Second, this is a highly secure way of handling identification.
+SnipFolio is registered with all the systems doing the identification.
+They are monitoring all the accesses to their system.
+They all have fully secure login mechanisms and profile management, so
+SnipFolio leverages that.
+</p>
+<p>
+SnipFolio simply needs to know your email address in order to identify you (as
+many systems do).
+It does not want to store any personal information about you.
+Since it not building and storing (and selling like some systems) your
+account information, it can leave all that to a system that you are already
+using and trust.
+</p>
+
+<h3>Is it safe?</h3>
+<p>
+Definitely.
+If you have not used this type of login mechanism before, you may be concerned
+(with good reason) whether it is safe.
+The OAuth framework is designed with user and data safety in mind.
+Here are the key points.
+<dl>
+  <dt>Your username/password is given to the other system, not SnipFolio</dt>
+  <dd>When you login in the browser, you will see that the URL of the login page is Google/Facebook/Hotmail/etc.  You are logging in to that system as you normally would.  Your username and password goes to them for them to authenticate you
+.</dd>
+
+  <dt>None of your data from the other system is exposed to SnipFolio.</dt>
+  <dd>SnipFolio only asks that system what your email address is in order to indentify you.  When you authorized SnipFolio, that system notified you that this is the only piece of information given to SnipFolio.</dd>
+</dl>
+</p>
+
+</body>
+</html>

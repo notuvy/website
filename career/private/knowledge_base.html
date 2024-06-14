@@ -1,0 +1,67 @@
+<html>
+  <head>
+<title>Knowledge Base</title>
+</head>
+<body>
+<h1>Knowledge Base</h1>
+
+<hr>
+<h2>Java</h2>
+
+<h3>Environment and Execution</h3>
+
+<h4>Memory Settings</h4>
+
+Set data space limits by explicitly setting the initial and max heap size like
+<blockquote>
+  -Xms512m -Xmx1024m
+</blockquote>
+Note that this is for the <em>data</em>.
+It may also be necessary to increase the space for metadata 
+(used by the JVM, like storing all the loaded classes).
+This is done like
+<blockquote>
+  -XX:MaxPermSize=128m
+</blockquote>
+
+<ul>
+  <li><a href="http://mark.koli.ch/2009/01/understanding-javas-perm-gen-maxpermsize-heap-space-etc.html">ref1</a></li>
+  <li><a href="http://rimuhosting.com/knowledgebase/linux/java/-Xmx-settings">ref2</a></li>
+</ul>
+
+<h3>Concepts</h3>
+
+<h4>Unicode</h4>
+
+<p>
+Unicode is the univeral alphabet of characters.  
+There are many ways of mapping byte sequences to the alphabet, and these are
+character encodings.
+</p>
+
+<p>
+Because the full Unicode alphabet contains more than 256 characters, a 
+multi-byte encoding is required.
+The most common choice is UTF-8 because it uses a single byte for encoding
+ASCII, and multiple bytes for extended values.
+</p>
+
+<ul>
+  <li><a href="http://www.joelonsoftware.com/articles/Unicode.html">ref1</a></li>
+</ul>
+
+<hr>
+<h2>SQL</h2>
+
+<h3>What is the difference between an inner join and an outer join?</h3>
+<p>
+The join will combine the contents of two tables.  An inner join is used when the rows of the two tables have a one-to-one relationship.  A LEFT outer join is a many-to-one relationship, a RIGHT outer join is a one-to-many relationship, and a FULL outer join is a many-to-many relationship.
+</p>
+
+<ul>
+  <li><a href="http://stackoverflow.com/questions/38549/difference-between-inner-and-outer-join">ref1</a></li>
+  <li><a href="http://www.codinghorror.com/blog/archives/000976.html">ref2</a></li>
+</ul>
+
+</body>
+</html>

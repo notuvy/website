@@ -1,0 +1,212 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+  <title>Rearden Commerce Summary: Murali Krishnan</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <link rel="stylesheet" type="text/css" href="../main.css">
+  <link rel="stylesheet" type="text/css" href="resume.css">
+  <style>
+    li.finished {
+      text-decoration: line-through;
+    }
+  </style>
+</head>
+<body>
+
+<p class="workhead">Rearden Commerce Summary: Murali Krishnan</p>
+<p class="worksub">
+  <span class="jobtitle">Senior Software Engineer</span>,
+  <span class="daterange">November 2002 - January 2007</span>
+</p>
+
+<p class="sectionhead">Overview</p>
+
+<p class="section">
+  In my tenure at Rearden Commerce, I have made significant contributions
+  in a variety of areas in the Engineering department.
+  My responsibilities encompass original design of platform frameworks,
+  design and development of functional features, performance-oriented
+  design and trouble-shooting, and development process design.
+</p>
+
+<!-- BLOCK ------------------------------------------------------------ -->
+<p class="sectionhead">Framework Design</p>
+
+<p class="sectionlabel">Transaction Framework</p>
+<p class="section">
+  I proactively conceived, designed, and implemented a mechanism for managing
+  local transactions (DB and JMS).
+  This facility allows developers to make a piece of logic transactional
+  by simply denoting a section of thread-wise logic to be transactional.
+  All relevant information is stored with the thread of execution.
+  This feature allowed the core architecture to be redesigned to not
+  use EJB for transactionality, thereby reducing operating cost by deploying
+  the application in the tomcat application server instead of the WebLogic
+  application server.
+</p>
+
+<p class="sectionlabel">Measurement Framework</p>
+<p class="section">
+  I conceived, designed, and implemented a framework for representing
+  convertible measurement values (value and units data).
+  The existing OR mapping layer was extended to include support for this
+  framework.
+  This framework was also extended to represent currency values as units,
+  allowing the entire application to represent monetary values in any of
+  a set of supported currencies.
+  These facilities allowed the application design to be extended for
+  international usage.
+</p>
+
+<p class="sectionlabel">DB Access Layer</p>
+<p class="section">
+  In order to avoid the complexity and fragility of writing direct JDBC
+  logic, I implemented an abstraction by which DB operations can be written
+  without any explicit handling of the underlying DB connections or connection
+  pool.
+  This was developed from scratch, but is similar to the jakarta commons
+  <a target="resref" href="http://jakarta.apache.org/commons/dbutils/">DbUtils</a> package.
+  
+</p>
+
+<p class="sectionlabel">Workflow State Object Model</p>
+<p class="section">
+  I implemented many refactorings where primitive constants were replaced
+  by object constants in an attempt to make the application design more
+  object-oriented.
+  The biggest such project was the effort to replace the representation of
+  workflow process states from integers (using static methods to define
+  behavior) to rich objects.
+  This immediately uncovered hidden bugs and made the framework extensible.
+</p>
+
+<p class="sectionlabel">DB Connection Leak Detection</p>
+<p class="section">
+  Because the leak of DB connections is a serious problem, I devised a
+  mechanism by which connections are registered/deregistered when they
+  are allocated/released.
+  This allows a running system to be intraspected to see current usage.
+  There is also a monitor that detects and reports when a connection is in
+  use for a long period of time and thus is a potential leak.
+</p>
+
+<!-- BLOCK ------------------------------------------------------------ -->
+<p class="sectionhead">Functional Component Development</p>
+
+<p class="sectionlabel">Address Validation Module</p>
+<p class="section">
+  I incorporated a third party address validation package.
+  A generic facade was designed to access this service, so client logic
+  used a simplified API, while the underlying implementation provided
+  round-robin connection pooling, and provided conditional access to
+  multiple data sources.
+</p>
+
+<p class="sectionlabel">Zombie Process Terminator</p>
+<p class="section">
+  The application contains a workflow engine which needed a mechanism to
+  detect and terminate process that had escaped from the control of the engine.
+  We identified several scenarios where this could happen.
+  I designed a pluggable framework in which terminators for different
+  conditions could be defined.
+</p>
+
+<p class="sectionlabel">User Profile Load</p>
+<p class="section">
+  I designed an implemented an import mechanism to define user accounts in
+  the system based on a company's directory dump.
+  The tool took the company XML file, transformed it to a standard
+  (Rearden-defined) XML format, loaded it into DB tables, then triggered a
+  stored procedure to finish the load.
+  A mechanism to activate user accounts based on simple rules was also
+  implemented.
+</p>
+
+<!-- BLOCK ------------------------------------------------------------ -->
+<p class="sectionhead">Process Design</p>
+
+<p class="sectionlabel">Build Design</p>
+<p class="section">
+  I took on the role of the principal designer of the build system.
+  I standardized and structured the build (ant) system, included how
+  source files are compiled, JSPs are compiled, and how the application
+  is deployed.
+</p>
+
+<p class="sectionlabel">Automated Test Framework</p>
+<p class="section">
+  Although a junit based testing framework existed prior to my joining, it
+  was crudely implemented and did not properly follow the junit paradigm.
+  I rewrote the framework by partitioning the suite into independent tests
+  which are run with every hourly build, and interdependent tests which are
+  run with every nightly build.
+</p>
+
+<p class="sectionlabel">Application Componentization</p>
+<p class="section">
+  When I started, all the source was in a single module, and built into a
+  single jar file.
+  I began the effort of breaking the application into many modular components.
+  This was a major effort because it required refactoring the source code to
+  eliminate circular dependencies between separate components.
+  The build needed to be redesigned to handle the new structure.
+</p>
+
+<!-- BLOCK ------------------------------------------------------------ -->
+<p class="sectionhead">Tools Design</p>
+
+<p class="sectionlabel">DB Connection Management Paradigm Checker</p>
+<p class="section">
+  To avoid the serious problem of the leak of DB connections, I wrote a
+  source code analysis tool (Perl) which parses the whole code base and
+  detects improper paradigm usage.
+  This is run with every hourly build, so problems are reported before the
+  application is deployed.
+</p>
+
+<p class="sectionlabel">Source Code Style Management</p>
+<p class="section">
+  I worked on a committee that determined what common coding style guidelines
+  to adopt.
+  To simplify adherence, I wrote a tool (separate Java program) to rewrite
+  source code files to match the guidelines.
+  The tool is automatically invoked during the build process.
+</p>
+
+<p class="sectionlabel">Module Dependency Calculation</p>
+<p class="section">
+  I designed a tool that process the system build files to calculate the
+  dependencies of the separate source code modules.
+  It does this by reading the classpath for each module and constructing a
+  directed acyclic graph representing the dependencies.
+  This was essential for the correct design of new modules, and the
+  partitioning of the existing modules into separate ones.
+  It is also used to calculate the correct order of build.
+</p>
+
+<!-- BLOCK ------------------------------------------------------------ -->
+<p class="sectionhead">Presentations</p>
+
+<p class="sectionlabel">Testing and Development</p>
+<p class="section">
+  I gave a presentation to the Engineering department on modern automated
+  software testing philosophies and best practices.
+  I outlined the frameworks I developed and demonstrated the benefits of
+  the system.
+</p>
+
+<p class="sectionlabel">Performance</p>
+<p class="section">
+  I collected my observations on the many coding practices in the application
+  source where non-optimal performance was introduced.
+  I gave a presentation to the Engineering department with my findings and
+  gave suggestions on how to fix the problems and on how to avoid problems
+  in the future.
+</p>
+
+<p class="copyright">&nbsp;</p>
+<p class="navreturn"><a class="nav" href="current.html">main resume</a></p>
+
+</body>
+</html>
+

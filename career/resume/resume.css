@@ -1,0 +1,138 @@
+  p.sectionhead {
+    margin-left: 0mm;
+    font-weight: bold;
+  }
+
+  p.block {
+    margin-left: 0mm;
+    font-weight: bold;
+  }
+
+  p.section {
+    margin-left: 5mm;
+  }
+
+  p.sectionlabel {
+    margin-left: 5mm;
+    margin-bottom: -3mm;
+    font-style: italic;
+  }
+
+  p.h3section {
+    margin-left: 10mm;
+    margin-right: 5mm;
+  }
+
+  p.employment {
+    margin-left: 0mm;
+    font-weight: bold;
+  }
+
+  p.note {
+    margin-left: 0mm;
+    margin-top: 0mm;
+    font-style: italic;
+  }
+
+  p.workhead {
+    background-color: #e0e0e0;
+    color: #000000;
+    text-align: center;
+    font-weight: bold;
+    font-size: large;
+  }
+
+  p.copyright {
+    background-color: #e0e0e0;
+  }
+
+  p.navreturn {
+    color: #000000;
+    text-align: left;
+  }
+
+  .jobtitle {
+    font-weight: bold;
+  }
+
+  .daterange {
+    font-style: italic;
+  }
+
+  h1, h2, h3, h4, th, .table-header {
+    color: #000000;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  h3 {
+    margin-left: 5mm;
+    margin-right: 5mm;
+    margin-bottom: -5mm;
+  }
+
+  h2, a:hover {
+    background-color: #e0e0e0;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  a:visited {
+    color: #0000ff;
+  }
+
+  table.emphead {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  tr.emphead {
+    vertical-align: top;
+  }
+
+  td.emprole {
+    font-size: 11pt;
+    font-weight: bold;
+    width: 225px;
+  }
+
+  td.empcompany {
+    font-size: 11pt;
+    font-weight: bold;
+    width: 200px;
+  }
+
+  td.empperiod {
+    font-size: 11pt;
+    font-weight: bold;
+    width: 200px;
+  }
+
+  td.empdetail {
+    text-align: right;
+    font-style: italic;
+  }
+
+  td.edu {
+    font-size: 11pt;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+
+@media print {
+
+  td.empdetail {
+    color: transparent;
+  }
+
+  a.nav {
+    background:#ffffff;
+    color: transparent;
+  }
+}

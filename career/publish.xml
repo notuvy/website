@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FtpFileScript>
+
+  <Entry>
+    <Action>put</Action>
+    <Local>index.html</Local>
+    <Remote>career@ftp.notuvy.com:httpdocs/index.html</Remote>
+  </Entry>
+
+  <Entry>
+    <Action>put</Action>
+    <Local>main.css</Local>
+    <Remote>career@ftp.notuvy.com:httpdocs/main.css</Remote>
+  </Entry>
+
+  <Entry>
+    <Action>put</Action>
+    <Local>resume</Local>
+    <Remote>career@ftp.notuvy.com:httpdocs/resume</Remote>
+  </Entry>
+
+  <Entry>
+    <Action>put</Action>
+    <Local>portfolio</Local>
+    <Remote>career@ftp.notuvy.com:httpdocs/portfolio</Remote>
+  </Entry>
+
+  <Entry>
+    <Action>put</Action>
+    <Local>portfolio/code</Local>
+    <Remote>career@ftp.notuvy.com:httpdocs/portfolio/code</Remote>
+  </Entry>
+
+  <Entry>
+    <Action>put</Action>
+    <Local>essay</Local>
+    <Remote>career@ftp.notuvy.com:httpdocs/essay</Remote>
+  </Entry>
+
+  <Entry>
+    <Action>put</Action>
+    <Local>redirect.html</Local>
+    <Remote>home@ftp.notuvy.com:httpdocs/career/index.html</Remote>
+  </Entry>
+
+  <Entry>
+    <Action>put</Action>
+    <Local>redirect.html</Local>
+    <Remote>home@ftp.notuvy.com:httpdocs/career/metaindex.html</Remote>
+  </Entry>
+
+</FtpFileScript>

@@ -1,0 +1,319 @@
+<html>
+<head>
+  <title>Resume: Murali Krishnan</title>
+    <script type="text/javascript">
+      function showEmail(domain, account) {
+        document.write('<a href=\"mailto:' + account + '@' + domain + '\">');
+        document.write(account + '@' + domain + '</a>');
+      }
+    </script>
+  <link rel="stylesheet" type="text/css" href="../main.css">
+  <link rel="stylesheet" type="text/css" href="resume.css">
+  <style>
+    body {
+      width: 8.5in;
+      margin-left: 0.25in;
+      margin-right: 0.5in;
+      margin-top: 0.125in;
+      margin-bottom: 0.5in;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Murali Krishnan</h1>
+
+    <table width="100%" border="0">
+      <tr>
+        <td align="left">
+          email:
+          <script language="JavaScript"><!--
+            showEmail('notuvy.com','career');
+          // --></script>
+        </td>
+        <td align="right">web: <a href="http://career.notuvy.com">http://career.notuvy.com</a></td>
+      </tr>
+      <tr>
+        <td align="left" colspan="2">phone: 408-836-9467</td>
+      </tr>
+    </table>
+
+<hr style="height: 1px; color: black; background: black;"/>
+<p class="block">OBJECTIVES</p>
+<p class="section">
+  With 19 years of experience, I have considerable expertise in software
+  development and design.
+  I have a passion for software that is reflected in my accomplishments,
+  the quality of my work, and the amount of time I spend designing and
+  programming.
+</p>
+
+<p class="section">
+  I savor a challenge, so I am looking for a position that will provide one.
+  I enjoy learning, so I am looking for a team that is intelligent and
+  driven.
+  I am committed to excellence, so I am looking for an environment where
+  that is a shared sentiment.
+<!--
+  I am seeking a senior level software engineering position where I
+  can apply my skills in design and development.
+  I have developed expertise in software production from specification
+  and design, through development, to testing and deployment.
+  I want to work in a group where team members 
+  leverage each other's talents, and for a company that is dedicated
+  to delivering quality software.
+  I am seeking a position with a high level of responsibility, and
+  one which will allow me to exercise technical leadership.
+-->
+</p>
+
+<hr style="height: 1px; color: black; background: black;"/>
+<p class="block">EMPLOYMENT HISTORY</p>
+<!--<hr style="border: none; height: 1px; color: black; background: black;"/>-->
+<table class="emphead">
+  <tr class="emphead">
+    <td class="emprole">Founder and Chief Architect</td>
+    <td class="empcompany"><a target="resref" href="http://www.snipfolio.com/"><b>SnipFolio LLC.</a></b>,<br>Sunnyvale, CA</td>
+    <td class="empperiod">October 2011 - present</td>
+    <td class="empdetail"><!--<a class="nav" href="dtlsnipfolio.html">full details &hellip;</a>--></td>
+  </tr>
+</table>
+
+<p class="section">
+  SnipFolio moves copy-and-paste to the cloud.
+  SnipFolio is a product that I took from an idea to general release, with both a <a href="http://www.snipfolio.com/download/desktop-app/">desktop application</a> and an <a href="https://play.google.com/store/apps/details?id=com.snipfolio">Android app</a>.
+  The application is publicly available, highly rated, and has a growing install base.
+</p>
+
+<p class="section">
+SnipFolio started as one of several personal projects years earlier, but it was not being actively developed.  After leaving Local Corporation, I decided to try to commercialize one of my projects.  I decided to pursue SnipFolio because I did not see any other solutions for a cloud-based clipboard manager.  I formed the company and filed the patent covering the unique core functionality.
+</p>
+
+<p class="section">
+The design work involved several aspects: data structures, client/server communication, UI design, scalability, and security.
+I am responsible for all aspects of engineering, business development, and marketing.
+</p>
+
+<p class="section">
+Java was chosen for implementation of the desktop client so that it would be available on all operating systems.  (If more resources were available, native applications would have been explored.  Java provides access to the system clipboard sufficient for a general client, but native APIs might provide more robust access.)  The choice of Java also meant that a large portion of the codebase could be reused in the implementation of an Android mobile app.
+</p>
+
+<p class="section">
+The REST webservice paradigm was chosen to handle data exchange due to its simplicity and flexibility.
+The specific framework choice was Restlet, for its simplicity.
+</p>
+
+<p class="section">
+All server communication was designed to be HTTP web services because this is the most general security solution (it satisfies requirements for operation behind a secure firewall).
+Because this necessitates periodic polling, clever algorithms needed to be defined for efficient and effective data synchronization.
+</p>
+
+<p class="section">
+Although UI design is not my primary strength, a good level of competence was required to create a public application.  The main challenge was to include powerful features but still keep the appearance simple.  Another major challenge was to design both the desktop and mobile applications with an (almost) identical look-and-feel, a requirement for a smooth user experience.
+</p>
+
+<p class="section">
+A cache for server data was implemented to optimize performance.
+A custom design was done to conform to expected and observed usage.
+</p>
+
+<p class="section">
+Several aspects of security were designed and implemented.
+HTTPS is used for all server communication to ensure all network data exchange is protected (with no data exposed in the GET request).
+Sensitive data are stored with encryption (PBEWithMD5AndDES) so that information is protected even if the system is compromised.
+User authentication is handled with OAuth2 to leverage existing authentication providers both as a user convenience and as a security feature.
+</p>
+
+<p class="section">
+The IT infrastructure choice was to use Amazon EC2 for its configuration flexibility and convenience.
+The whole system currently operates in a single micro instance, but can be easily expanded to a larger system due to its modularity.
+The web server front end is handled by apache, and the web application is deployed to a tomcat instance (mod_proxy connected).
+This configuration enables expansion when needed.
+</p>
+
+<!--
+<p class="section">
+  I am responsible for the original design, the coding, the IT configuration, and the business development.  This required algorithmic design, scale management, unified UI design for both desktop and mobile platforms, and integration of the latest cloud frameworks.
+  A patent was filed covering the core technologies.
+</p>
+-->
+
+<table class="emphead">
+  <tr class="emphead">
+    <td class="emprole">Senior Engineer</td>
+    <td class="empcompany"><a target="resref" href="http://www.krillion.com/"><b>Krillion Inc.</a></b>,<br>Mountain View, CA</td>
+    <td class="empperiod">February 2007 - May 2011</td>
+    <td class="empdetail"><a class="nav" href="dtlkrillion.html">full details &hellip;</a></td>
+  </tr>
+</table>
+
+<p class="note">
+  Krillion was acquired by <a target="resref" href="http://www.local.com/"><b>Local.com</b></a> in April 2011.
+</p>
+
+<p class="section">
+  Krillion is an innovative solution for local shopping.
+  By gathering product and store location data, it provides a rich
+  directory of products in stores near locations.
+</p>
+
+<p class="section">
+  I was involved in several components of the back-end architecture.
+  I was the primary designer of the data engine.
+</p>
+
+<!--<hr style="border: none; height: 1px; color: black; background: black;"/>-->
+<table class="emphead">
+  <tr class="emphead">
+    <td class="emprole">Senior Software Engineer</td>
+    <td class="empcompany"><a target="resref" href="http://www.reardencommerce.com/"><b>Rearden Commerce Inc.</a></b>,<br>San Mateo, CA</td>
+    <td class="empperiod">November 2002 - January 2007</td>
+    <td class="empdetail"><a class="nav" href="dtltalaris.html">full details &hellip;</a></td>
+  </tr>
+</table>
+
+<p class="section">
+  The Rearden service is a hosted application that is a platform for the
+  procurement and scheduling of business services (conferencing, travel,
+  package shipping, etc.).
+</p>
+
+<p class="section">
+  In my tenure at Rearden Commerce, I made significant contributions
+  in a variety of areas in the Engineering department.
+  My responsibilities encompassed original design of platform frameworks,
+  design and development of functional features, performance-oriented
+  design and trouble-shooting, and development process design.
+</p>
+
+<!--<hr style="border: none; height: 1px; color: black; background: black;"/>-->
+<table class="emphead">
+  <tr class="emphead">
+    <td class="emprole">Senior Engineer</td>
+    <td class="empcompany"><a target="resref" href="http://www.iona.com">IONA Technologies Inc.</a>,<br>Santa Clara, CA</td>
+    <td class="empperiod">December 1999 - August 2002</td>
+    <td class="empdetail"><a class="nav" href="dtliona.html">full details &hellip;</a></td>
+  </tr>
+</table>
+
+<p class="note">
+  I was originally at <b>Netfish Technologies</b>,
+  which was acquired by IONA Technologies in May 2001.
+</p>
+
+<p class="section">
+  I was a senior member of the infrastructure group which developed
+  the core functionality of Collaborate.
+  Collaborate is a platform for (XML) standards-based business to
+  business document exchange and is a large Java application run
+  in an application server.
+  I was the primary designer for several features and contributed
+  to the development of many other product modules.
+</p>
+
+<!--<hr style="border: none; height: 1px; color: black; background: black;"/>-->
+<table class="emphead">
+  <tr class="emphead">
+    <td class="emprole">Senior Engineer</td>
+    <td class="empcompany">Tympani Development Inc.</b>,<br>Sunnyvale, CA</td>
+    <td class="empperiod">April 1997 - December 1999</td>
+    <td class="empdetail"><a class="nav" href="dtltympani.html">full details &hellip;</a></td>
+  </tr>
+</table>
+
+<p class="section">
+  I was a principal architect and developer
+  for the Tympani Atlas Server, a server-centered 
+  Internet information management tool and corporate
+  portal.
+  Atlas is a multiuser environment where individuals can
+  download Internet information and import unstructured
+  data, then process and filter the information, and share
+  it with other users in the organization.
+  I was involved in all stages of development from the initial
+  design through the deployment as a commercial software package.
+</p>
+
+<!--<hr style="border: none; height: 1px; color: black; background: black;"/>-->
+<table class="emphead">
+  <tr class="emphead">
+    <td class="emprole">Software Engineer</td>
+    <td class="empcompany"><a href="http://www.lockheedmartin.com/">Lockheed Martin</a>,<br>Palo Alto, CA</td>
+    <td class="empperiod">August 1993 - April 1997</td>
+    <td class="empdetail"><a class="nav" href="dtllockheed.html">full details &hellip;</a></td>
+  </tr>
+</table>
+<p></p>
+
+<!--<hr style="border: none; height: 1px; color: black; background: black;"/>-->
+<table class="emphead">
+  <tr class="emphead">
+    <td class="emprole">Graduate Teaching Assistant</td>
+    <td class="empcompany"><a target="resref" href="http://www.cs.uiuc.edu/">University of Illinois at<br>Urbana-Champaign</a></td>
+    <td class="empperiod">January 1991 - May 1993</td>
+    <td class="empdetail">&nbsp;</td>
+  </tr>
+</table>
+
+<hr style="height: 1px; color: black; background: black;"/>
+<p class="block">OTHER PROJECTS</p>
+<p class="section">
+  Outside my professional duties, I quench my design and programming thirst
+  by working on software projects for my own use, and participating in 
+  several open source projects 
+  (<a target="resref" href="http://fsgrep.sourceforge.net/">Fsgrep</a>, 
+  <a target="resref" href="http://notuvysingleapp.sourceforge.net/">NOTUVY singleapp</a>, 
+  and others).
+    <a class="nav" href="dtlprojects.html">[full details]</a>
+</p>
+<p class="section">
+  I write a blog [<a href="http://dotslashstar.blogspot.com/">http://dotslashstar.blogspot.com</a>] compiling useful technical tips for programmers and Unix users.
+</p>
+
+<hr style="height: 1px; color: black; background: black;"/>
+<p class="block">SKILL SET</p>
+<p class="section">
+  I have worked with a wide variety of programming languages
+  and software packages.
+  The list below represents the areas of my most recent
+  exposure, and is not meant to be comprehensive.
+  I have a preference for object-oriented design because
+  it inherently creates a decoupled, modular framework, which
+  is critical for group development.
+  The development of automated procedures is of particular interest
+  to me.
+  In all my assignments, I have taken the initiative
+  to streamline the software development process with time-saving programs 
+  and scripts.
+
+  <ul>
+    <li><b>Languages:</b> Java/J2EE, C/C++, Smalltalk, XML/WebServices,
+      SQL, Internet protocols (HTTP, FTP, SMTP), HTML</li>
+    <li><b>Operating Systems:</b> Unix (Linux, Solaris), Windows</li> 
+    <li><b>Tools:</b> Regular expressions, Perl, maven, <a target="resref" href="http://www.junit.org/index.htm">JUnit</a>, SVN, JDBC, application servers, Oracle, MySQL, Amazon AWS</li>
+    <li><b>Methodologies:</b> <a target="resref" href="http://www.extremeprogramming.org">Extreme Programming</a>, Design Patterns, Test-first Development</li>
+  </ul>
+</p>
+
+<hr style="height: 1px; color: black; background: black;"/>
+<p class="block">EDUCATION</p>
+<table border="0" style="margin-left:5mm;">
+  <tr>
+    <td class="edu">M.S.</td>
+    <td class="edu">1993</td>
+    <td class="edu">Computer Science</td>
+    <td class="edu"><a target="resref" href="http://www.cs.uiuc.edu/">University of Illinois at Urbana-Champaign</a></td>
+    <td class="edu">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="edu">B.S.</td>
+    <td class="edu">1991</td>
+    <td class="edu">Computer Engineering</td>
+    <td class="edu"><a target="resref" href="http://www.ece.uiuc.edu/">University of Illinois at Urbana-Champaign</a></td>
+    <td class="edu">graduation with honors</td>
+  </tr>
+</table>
+
+
+</body>
+</html>

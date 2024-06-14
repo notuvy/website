@@ -1,0 +1,8 @@
+AuthUserFile /alt/var/www/html/personal/private/.htpasswd
+AuthGroupFile /dev/null
+AuthName "VMKrishnan restricted"
+AuthType Basic
+
+<Limit GET POST>
+require valid-user
+</Limit>

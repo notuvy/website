@@ -1,0 +1,23 @@
+
+body {
+  margin: 2%;
+  background:#e0e0e0;
+  color: #000000;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  background:#aaaaaa;
+}
+
+td {
+  font-size: 10pt;
+}
+
+td.category {
+  text-align: left;
+  font-weight: bold;
+  font-size: 14pt;
+}
+

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FtpFileScript>
+
+  <Entry>
+    <Action>put</Action>
+    <Local>index.html</Local>
+    <Remote>notuvy@ftp.notuvy.com:httpdocs/index.html</Remote>
+  </Entry>
+
+  <Entry>
+    <Action>put</Action>
+    <Local>index.html</Local>
+    <Remote>data@ftp.notuvy.com:httpdocs/index.html</Remote>
+  </Entry>
+
+  <Entry>
+    <Action>put</Action>
+    <Local>root.htaccess</Local>
+    <Remote>notuvy@ftp.notuvy.com:httpdocs/.htaccess</Remote>
+  </Entry>
+
+  <Entry>
+    <Action>put</Action>
+    <Local>private.htaccess</Local>
+    <Remote>home@ftp.notuvy.com:httpdocs/.htaccess</Remote>
+  </Entry>
+
+  <Entry>
+    <Action>put</Action>
+    <Local>private.htpasswd</Local>
+    <Remote>home@ftp.notuvy.com:httpdocs/.htpasswd</Remote>
+  </Entry>
+
+</FtpFileScript>

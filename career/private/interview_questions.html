@@ -1,0 +1,146 @@
+<html>
+  <head>
+<title>Interview Questions</title>
+</head>
+<body>
+<h1>Interview Questions</h1>
+
+<p>
+  An archive of interview questions I have been asked.
+</p>
+
+<hr>
+<h2>Facebook</h2>
+<h3>28 Apr 2011</h3>
+
+<h4>Merge two integer arrays</h4>
+<p>
+Array B is size n and sorted ascending.
+Array A is size 2n, has only the first half populated with values sorted ascending.
+Implement "void sort(int[] a, int[] b, int n);
+</p>
+<p>
+  I initially got off on the wrong track because I wanted to merge values ascending.
+  This is a problem because there is no way to avoid shifting items in A.
+  After getting a hint that I was going in the wrong direction, I realized that if I merged descending, I would be adding values in free space.
+</p>
+
+<pre>
+void sort(int[] a, int[] b, int n) {
+    int cur_a=n-1, cur_b=n-1;
+    for (int i=2*n-1; i>0; i--) {
+        if (cur_b < 0) {
+            // nothing
+        } else if ((cur_a < 0) || (b[cur_b] > a[cur_a])) {
+            a[i] = b[cur_b--];
+        } else {
+            a[i] = a[cur_a--];
+        }
+    }
+}
+</pre>
+
+<h4>Breadth first traversal</h4>
+<p>
+Traverse a tree and print the nodes with all nodes of the same level on the same line.
+</p>
+
+Take an arbirtrary binary tree:
+<pre>
+      a
+     / \
+    b   c
+   /   / \
+  d   e   f
+ /     \
+g       h
+</pre>
+
+And print all nodes by level in left-to-right order.
+<pre>
+a
+bc
+def
+gh
+</pre>
+
+<p>
+  I identified that this is a breadth-first traversal with the wrinkle that
+  the last node of each level is special (must print newline in addition to
+  its label).
+</p>
+
+<p>
+  My solution was to keep a workspace implemented as a Map&lt;Level,NodeList&gt;.
+  The traversal can be done in any order (either depth or breadth first), but the level must be passed to each child (with the root knowing it is level 0).
+  Each visitied node with look up the list associated with its level and add itself to the end of the list.
+  After the tree has been fully traversed, the workspace is iterated by level, 
+  each level's list is iterated and each node label is printed.
+  Once the list is exhausted, a newline is printed.
+</p>
+
+<h3>18 Apr 2011</h3>
+
+<h4>Reverse bytes of integers in an array</h4>
+<p>
+Reverse bytes of integers in an array.
+</p>
+
+<hr>
+<h2>Skype</h2>
+<h3>25 Apr 2011</h3>
+
+<h4>Mutex Logic</h4>
+
+<h4>HTTP internals</h4>
+
+<h4>Servlet API</h4>
+
+<h4>Singleton Implementation</h4>
+
+<h4>How do cookies work</h4>
+
+<h4>Base64</h4>
+
+<hr>
+<h2>Google</h2>
+<h3>12 Apr 2011</h3>
+
+<h4>1: Similar Term Comparison [Decision Tree]</h4>
+
+<h4>2: Anagram</h4>
+
+<p>
+  Given a function that takes two strings, how to determine that the 
+  words are anagrams?
+</p>
+
+<p>
+  My first response was that the strings could be sorted and compared.
+  Asked for complexity, I said best case is O(n log-n) since that is
+  the best case for sorting.
+</p>
+
+<p>
+  I noted that a size check could be initially done because strings
+  if different size cannot be anagrams.
+</p>
+
+<p>
+  Asked for a more efficient algorithm, I thought and concluded that a
+  histogram of letters would correctly compare words, plus would run as
+  O(n), since only a single pass was needed to create the histogram.
+</p>
+
+<h4>2: Multilist Merge</h4>
+  <p>
+    Keep list of lists sorted by first element.
+    Complexity analysis with order notation.
+  </p>
+
+<h4>3: Coupon Tracking</h4>
+
+<h4>4: LRU Cache</h4>
+
+</body>
+</html>

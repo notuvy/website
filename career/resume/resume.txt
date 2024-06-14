@@ -1,0 +1,168 @@
+       Murali Krishnan	
+email: murali24@yahoo.com  phone: 408-836-9467 
+
+---------------------------------------------------------------------
+OBJECTIVES 
+
+I am seeking a senior level software engineering position where I can
+apply my skills in design and development. I have developed expertise
+in software production from specification and design, through
+development, to testing and deployment. I want to work in a group
+where team members leverage each other's talents, and for a company
+that is dedicated to delivering quality software. I am seeking a
+position with a high level of responsibility, and one which will
+allow me to exercise technical leadership.  
+
+---------------------------------------------------------------------
+EMPLOYMENT HISTORY 
+
+IONA Technologies Inc., Santa Clara, CA
+Senior Engineer
+December 1999 - August 2002
+Note: I was originally employed by Netfish Technologies, which was
+eventually acquired by IONA Technologies in May 2001. 
+
+I was a senior member of the infrastructure group which developed the
+core functionality of Collaborate, one of the company's software
+products. Collaborate is a platform for (XML) standards-based
+business to business document exchange, and is a large Java
+application run in an application server. I was the primary designer
+for several features and contributed to the development of many other
+product modules. 
+
+I was the principle designer and developer for the Trading Partner
+Management module. I collected requirements from all users of this
+module, implemented the functionality (including DB persistence), and
+established automated tests for the module which ensured robustness
+and quality. 
+
+I designed a system to monitor system resource saturation and perform
+inbound data throttling. This was a generalized framework which
+allowed many different modules to contribute to a system-wide
+determination of 'saturation', and then used this flag to gracefully
+reject inbound documents until resources returned to availability.
+After determining the need for this feature through my own
+observations of system performance under heavy load, I proposed it to
+the technical leads and it was accepted. 
+
+I developed a framework for performance measurement. This simple,
+non-intrusive functionality used the system clock and correlated all
+the units of work performed by multiple threads. It produced a simple
+time-line report which allowed throughput to be measured in the
+highly threaded system. I identified the need for this functionality
+and I designed the entire framework, which became the standard
+measurement tool for the performance measurement/improvement
+initiative. 
+
+In addition to my primary software development responsibilities, I
+designed the software build system. I participated in the design of
+the automated unit test system and was a principle contributor in the
+evaluation, measurement, and improvement of the product performance.
+Because of my system-wide knowledge and general programming skills, I
+was often enlisted to address critical bugs. 
+
+I was a principle developer for the team implementing a business
+registry for XMLBus, the company's Web Services product. I developed
+an implementation of the JAXR API, which was then exposed as a Web
+Service. 
+
+I briefly worked with the consulting group where my responsibilities
+included installing/configuring the software at customer sites,
+interfacing and supporting customers, and designing and executing
+training classes. 
+
+Tympani Development Inc., Sunnyvale, CA
+Senior Engineer
+April 1997 - December 1999
+
+I was a principle architect and developer for the Tympani Atlas
+Server, a server-centered Internet information management tool and
+corporate portal. Atlas is a multiuser environment where individuals
+can download Internet information and import unstructured data, then
+process and filter the information, and share it with other users in
+the organization. I was involved in all stages of development from
+the initial design through the deployment as a commercial software
+package. 
+
+I was responsible for a significant part of the server development
+(C++), which is integrated with a Versant Object Database and the
+Apache web server. I was fully responsible for the design and
+development of the Java applet component of the user interface. I
+developed the installation and configuration scripts for the Unix
+version of the product, and served as the primary point of contact
+for customers using the Unix version. 
+
+I was the primary designer and developer of a separate extranet
+management tool, which was a spinoff of the Atlas Server. 
+
+In addition to the design of Atlas itself, I developed automated
+procedures and scripts (Perl) for testing and release packaging. 
+
+Lockheed Martin Missiles and Space, Palo Alto, CA
+Software Engineer
+August 1993 - April 1997 
+
+I was the primary developer responsible for the design and
+implementation (C++) of an uncertainty reasoning logic module of an
+autonomous control logic software package for unmanned underwater
+vehicles. 
+
+I designed and implemented (Smalltalk) a software package that
+enables an end user to graphically lay out a test mission and
+generate the resulting data input for simulation. 
+
+I designed and implemented (Smalltalk) a software package that
+presents raw data generated by simulation tests in a processed
+(graphical and quantitative) format. This tool allowed system
+engineers to evaluate simulation data more quickly and accurately,
+thus speeding the development cycle, and earned a departmental award.
+
+
+I coordinated a software testing policy and implemented (Perl
+scripts) an automated testing procedure for the system software. The
+scripts allowed development engineers to run simulation tests
+themselves rather than relying on testers to schedule them. This led
+to a significant increase in productivity and earned a departmental
+award. 
+
+I was rated as the top performer in department at my experience
+level. 
+
+University of Illinois at Urbana-Champaign 
+Teaching Assistant 
+January 1991 - May 1993
+
+I instructed groups of 20 to 40 students in introductory computer
+science. I reviewed and edited course material in an elementary
+numerical methods class. My responsibilities also included
+supervising the work of two undergraduate graders and designing
+programming assignments, quizzes, and exams. 
+
+---------------------------------------------------------------------
+SKILL SET 
+
+I have worked with a wide variety of programming languages and
+software packages. The list below represents the areas of my most
+recent exposure, and is not meant to be comprehensive. I have a
+preference for objected oriented design because it inherently creates
+a decoupled, modular framework, which is critical for group
+development. The development of automated procedures is of particular
+interest to me, and in all assignments, I have taken the initiative
+to develop time-saving scripts. 
+
+Languages: Java, C/C++, Smalltalk, HTML, XML, SQL, Internet protocols
+(HTTP, FTP, SMTP) 
+Operating Systems: Unix (Solaris, Linux), Windows 
+Tools: Perl, ant/make, JUnit, ClearCase, JDBC, application servers,
+Oracle DB, Cloudscape DB 
+Methodologies: Extreme Programming, Design Patterns   
+
+---------------------------------------------------------------------
+EDUCATION 
+
+M.S., 1993, Computer Science, University of Illinois at
+Urbana-Champaign. 
+
+B.S., 1991, Computer Engineering, University of Illinois at
+Urbana-Champaign, graduation with honors.  
+---------------------------------------------------------------------

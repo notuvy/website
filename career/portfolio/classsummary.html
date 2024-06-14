@@ -1,0 +1,99 @@
+<html>
+<head>
+  <title>Sample Project: Description of Classes</title>
+  <link rel="stylesheet" type="text/css" href="../main.css">
+  <link rel="stylesheet" type="text/css" href="portfolio.css">
+  <style>
+    th, .table-header {
+      color: #000099;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Sample Project: Description of Classes</h1>
+
+<p class="section">
+  The table below give a brief description of the classes.
+  Click on the class name to view the source code.
+</p>
+
+<table cellpadding="4">
+<tr bgcolor="#ddddaa"><th>Class</th><th>Description</th></tr>
+
+<tr valign="top">
+  <td><b><a href="code/HtmlCal.java.html">HtmlCal</a></b></td><td>
+    The main driver for the logic.  The main() provides command line execution,
+    and its public API can be used by other programs.
+  </td>
+</tr>
+
+<tr valign="top">
+  <td><b><a href="code/Range.java.html">Range</a></b></td><td>
+    Represent a contiguous range of dates.
+    Implemented by just storing the start and end dates of the range.
+    Any number of additional dates can be added.
+    If a new date is within the range, then the addition is a noop.
+    If a new date is outside the range, then the range is expanded.
+  </td>
+</tr>
+
+<tr valign="top">
+  <td><b><a href="code/Month.java.html">Month</a></b></td><td>
+    A composition of Week objects.
+  </td>
+</tr>
+
+<tr valign="top">
+  <td><b><a href="code/Week.java.html">Week</a></b></td><td>
+    A composition of DayOfMonth objects.
+  </td>
+</tr>
+
+<tr valign="top">
+  <td><b><a href="code/DayOfMonth.java.html">DayOfMonth</a></b></td><td>
+    The representation of a day of the month.
+    It contains the actual object representing that date, along with logic
+    that determines how it should eventually be rendered.
+  </td>
+</tr>
+
+<tr valign="top">
+  <td><b><a href="code/DayOfWeek.java.html">DayOfWeek</a></b></td><td>
+    An enumeration of the representation of the day of the week.
+    The underlying id is the same value used in Calendar.
+  </td>
+</tr>
+
+<tr valign="top">
+  <td><b><a href="code/DayDate.java.html">DayDate</a></b></td><td>
+    The object representing the actual day as a time object.
+    We could not simply use <code>Date</code> or <code>Calendar</code>
+    because neither give sufficient functionality in a single object.
+    This does by combining features from both.
+    All the date/time manipulation logic is isolated to this class.
+  </td>
+</tr>
+
+<tr valign="top">
+  <td><b><a href="code/Printable.java.html">Printable</a></b></td><td>
+    An object that can print itself as HTML.
+  </td>
+</tr>
+
+<tr valign="top">
+  <td><b><a href="code/Markable.java.html">Markable</a></b></td><td>
+    An object that can mark itself as being part of a Range.
+  </td>
+</tr>
+
+</table>
+
+<p class="copyright">&copy;2006 Murali Krishnan</p>
+<p class="navreturn">
+  <a class="nav" href="index.html">sample project index</a>
+  <a class="nav" href="../index.html">main index</a>
+</p>
+
+</body>
+</html>

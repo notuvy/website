@@ -1,0 +1,313 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head>
+<title></title>
+  <style type="text/css">
+    <!--code { font-family: Courier New, Courier; font-size: 10pt; margin: 0px; }-->
+  </style>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head><body>
+
+
+<!-- ======================================================== -->
+<!-- = Java Sourcecode to HTML automatically converted code = -->
+<!-- =   Java2Html Converter 5.0 [2006-02-26] by Markus Gebhard  markus@jave.de   = -->
+<!-- =     Further information: http://www.java2html.de     = -->
+<div align="left" class="java">
+<table border="2" cellpadding="3" cellspacing="0" bgcolor="#ffffff">
+  <!-- start headline -->
+   <tr>
+    <td colspan="2">
+     <center><font size="+2">
+      <code><b>
+DayDate.java
+      </b></code>
+     </font></center>
+    </td>
+   </tr>
+  <!-- end headline -->
+   <tr>
+  <!-- start source code -->
+   <td nowrap="nowrap" valign="top" align="left">
+    <code>
+<font color="#808080">001</font>&nbsp;<font color="#008000">/*</font><br />
+<font color="#808080">002</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;Copyright&nbsp;(c)&nbsp;2006&nbsp;Murali&nbsp;Krishnan.&nbsp;All&nbsp;rights&nbsp;reserved.</font><br />
+<font color="#808080">003</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*</font><br />
+<font color="#808080">004</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;HtmlCal&nbsp;is&nbsp;free&nbsp;software;&nbsp;you&nbsp;can&nbsp;redistribute&nbsp;it&nbsp;and/or&nbsp;modify</font><br />
+<font color="#808080">005</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;it&nbsp;under&nbsp;the&nbsp;terms&nbsp;of&nbsp;version&nbsp;2&nbsp;of&nbsp;the&nbsp;GNU&nbsp;General&nbsp;Public</font><br />
+<font color="#808080">006</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;License&nbsp;as&nbsp;published&nbsp;by&nbsp;the&nbsp;Free&nbsp;Software&nbsp;Foundation.</font><br />
+<font color="#808080">007</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;</font><br />
+<font color="#808080">008</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;HtmlCal&nbsp;is&nbsp;distributed&nbsp;in&nbsp;the&nbsp;hope&nbsp;that&nbsp;it&nbsp;will&nbsp;be&nbsp;useful,</font><br />
+<font color="#808080">009</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;but&nbsp;WITHOUT&nbsp;ANY&nbsp;WARRANTY;&nbsp;without&nbsp;even&nbsp;the&nbsp;implied&nbsp;warranty&nbsp;of</font><br />
+<font color="#808080">010</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;MERCHANTABILITY&nbsp;or&nbsp;FITNESS&nbsp;FOR&nbsp;A&nbsp;PARTICULAR&nbsp;PURPOSE.&nbsp;&nbsp;See&nbsp;the</font><br />
+<font color="#808080">011</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;GNU&nbsp;General&nbsp;Public&nbsp;License&nbsp;for&nbsp;more&nbsp;details.</font><br />
+<font color="#808080">012</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;</font><br />
+<font color="#808080">013</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;You&nbsp;should&nbsp;have&nbsp;received&nbsp;a&nbsp;copy&nbsp;of&nbsp;the&nbsp;GNU&nbsp;General&nbsp;Public&nbsp;License</font><br />
+<font color="#808080">014</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;along&nbsp;with&nbsp;HtmlCal&nbsp;(see&nbsp;the&nbsp;file&nbsp;named&nbsp;LICENSE.txt);&nbsp;if&nbsp;not,&nbsp;write</font><br />
+<font color="#808080">015</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;to&nbsp;the&nbsp;Free&nbsp;Software&nbsp;Foundation,&nbsp;Inc.,&nbsp;59&nbsp;Temple&nbsp;Place,&nbsp;Suite&nbsp;330,</font><br />
+<font color="#808080">016</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;Boston,&nbsp;MA&nbsp;&nbsp;02111-1307&nbsp;&nbsp;USA</font><br />
+<font color="#808080">017</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*/</font><br />
+<font color="#808080">018</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">019</font>&nbsp;<font color="#0000c0"><b>package&nbsp;</b></font><font color="#000000">mk.util.calendar;</font><br />
+<font color="#808080">020</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">021</font>&nbsp;<font color="#0000c0"><b>import&nbsp;</b></font><font color="#000000">java.text.*;</font><br />
+<font color="#808080">022</font>&nbsp;<font color="#0000c0"><b>import&nbsp;</b></font><font color="#000000">java.util.*;</font><br />
+<font color="#808080">023</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">024</font>&nbsp;<font color="#0000c0"><b>import&nbsp;</b></font><font color="#000000">org.apache.log4j.Logger;</font><br />
+<font color="#808080">025</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">026</font>&nbsp;<font color="#008000">/**</font><br />
+<font color="#808080">027</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;The&nbsp;object&nbsp;representing&nbsp;the&nbsp;actual&nbsp;day&nbsp;as&nbsp;a&nbsp;time&nbsp;object.</font><br />
+<font color="#808080">028</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;We&nbsp;could&nbsp;not&nbsp;simply&nbsp;use&nbsp;</font><font color="#008000">&lt;code&gt;</font><font color="#008000">Date</font><font color="#008000">&lt;/code&gt;&nbsp;</font><font color="#008000">or&nbsp;</font><font color="#008000">&lt;code&gt;</font><font color="#008000">Calendar</font><font color="#008000">&lt;/code&gt;</font><br />
+<font color="#808080">029</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;because&nbsp;neither&nbsp;give&nbsp;sufficient&nbsp;functionality&nbsp;in&nbsp;a&nbsp;single&nbsp;object.</font><br />
+<font color="#808080">030</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;This&nbsp;does&nbsp;by&nbsp;combining&nbsp;features&nbsp;from&nbsp;both.</font><br />
+<font color="#808080">031</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*</font><br />
+<font color="#808080">032</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;All&nbsp;the&nbsp;date/time&nbsp;manipulation&nbsp;logic&nbsp;is&nbsp;isolated&nbsp;to&nbsp;this&nbsp;class.</font><br />
+<font color="#808080">033</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*</font><br />
+<font color="#808080">034</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@author&nbsp;&nbsp;</font><font color="#008000">murali</font><br />
+<font color="#808080">035</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*/</font><br />
+<font color="#808080">036</font>&nbsp;<font color="#0000c0"><b>public&nbsp;class&nbsp;</b></font><font color="#000000">DayDate&nbsp;</font><font color="#0000c0"><b>extends&nbsp;</b></font><font color="#000000">Object&nbsp;</font><font color="#0000c0"><b>implements&nbsp;</b></font><font color="#000000">Comparable&nbsp;</font><font color="#000000">{</font><br />
+<font color="#808080">037</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">038</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">//------------------------------------------------------------</font><br />
+<font color="#808080">039</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">//-&nbsp;Class&nbsp;Variables</font><br />
+<font color="#808080">040</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">041</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>protected&nbsp;static&nbsp;final&nbsp;</b></font><font color="#000000">Logger&nbsp;LOG&nbsp;=&nbsp;Logger.getLogger</font><font color="#000000">(</font><font color="#000000">DayDate.</font><font color="#0000c0"><b>class</b></font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">042</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">043</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">/**</font><br />
+<font color="#808080">044</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;The&nbsp;simple&nbsp;input&nbsp;format&nbsp;for&nbsp;any&nbsp;day&nbsp;of&nbsp;the&nbsp;year.</font><br />
+<font color="#808080">045</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*/</font><br />
+<font color="#808080">046</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>protected&nbsp;static&nbsp;final&nbsp;</b></font><font color="#000000">DateFormat&nbsp;LONG_FORMAT&nbsp;=&nbsp;</font><font color="#0000c0"><b>new&nbsp;</b></font><font color="#000000">SimpleDateFormat</font><font color="#000000">(</font><font color="#990000">&#34;yyyy-MM-dd&#34;</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">047</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">048</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">049</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>private&nbsp;static&nbsp;final&nbsp;</b></font><font color="#000000">Date&nbsp;UNDEFINED_DATE&nbsp;=&nbsp;</font><font color="#0000c0"><b>new&nbsp;</b></font><font color="#000000">Date</font><font color="#000000">(</font><font color="#990000">0</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">050</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;static&nbsp;final&nbsp;</b></font><font color="#000000">DayDate&nbsp;UNDEFINED&nbsp;=&nbsp;</font><font color="#0000c0"><b>new&nbsp;</b></font><font color="#000000">DayDate</font><font color="#000000">(</font><font color="#990000">0</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">051</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">052</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">053</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">//------------------------------------------------------------</font><br />
+<font color="#808080">054</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">//-&nbsp;Class&nbsp;Functions</font><br />
+<font color="#808080">055</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">056</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>protected&nbsp;static&nbsp;</b></font><font color="#c00000"><b>void&nbsp;</b></font><font color="#000000">truncate</font><font color="#000000">(</font><font color="#000000">Calendar&nbsp;pCalendar</font><font color="#000000">)&nbsp;{</font><br />
+<font color="#808080">057</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">pCalendar.set</font><font color="#000000">(</font><font color="#000000">Calendar.HOUR,&nbsp;</font><font color="#990000">0</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">058</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">pCalendar.set</font><font color="#000000">(</font><font color="#000000">Calendar.MINUTE,&nbsp;</font><font color="#990000">0</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">059</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">pCalendar.set</font><font color="#000000">(</font><font color="#000000">Calendar.SECOND,&nbsp;</font><font color="#990000">0</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">060</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">pCalendar.set</font><font color="#000000">(</font><font color="#000000">Calendar.MILLISECOND,&nbsp;</font><font color="#990000">0</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">061</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">062</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">063</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">064</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">//------------------------------------------------------------</font><br />
+<font color="#808080">065</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">//-&nbsp;Instance&nbsp;Variables</font><br />
+<font color="#808080">066</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">067</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>private&nbsp;final&nbsp;</b></font><font color="#000000">Date&nbsp;vDate;</font><br />
+<font color="#808080">068</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">069</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">070</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">//------------------------------------------------------------</font><br />
+<font color="#808080">071</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">//-&nbsp;Constructors</font><br />
+<font color="#808080">072</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">073</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>private&nbsp;</b></font><font color="#000000">DayDate</font><font color="#000000">(</font><font color="#c00000"><b>long&nbsp;</b></font><font color="#000000">pLong</font><font color="#000000">)&nbsp;{</font><br />
+<font color="#808080">074</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">vDate&nbsp;=&nbsp;</font><font color="#0000c0"><b>new&nbsp;</b></font><font color="#000000">Date</font><font color="#000000">(</font><font color="#000000">pLong</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">075</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">076</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">077</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;</b></font><font color="#000000">DayDate</font><font color="#000000">(</font><font color="#000000">Date&nbsp;pDate</font><font color="#000000">)&nbsp;{</font><br />
+<font color="#808080">078</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">Calendar&nbsp;calendar&nbsp;=&nbsp;Calendar.getInstance</font><font color="#000000">()</font><font color="#000000">;</font><br />
+<font color="#808080">079</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">calendar.setTime</font><font color="#000000">(</font><font color="#000000">pDate</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">080</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">truncate</font><font color="#000000">(</font><font color="#000000">calendar</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">081</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">vDate&nbsp;=&nbsp;calendar.getTime</font><font color="#000000">()</font><font color="#000000">;</font><br />
+<font color="#808080">082</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">083</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">084</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;</b></font><font color="#000000">DayDate</font><font color="#000000">(</font><font color="#000000">Calendar&nbsp;pCalendar</font><font color="#000000">)&nbsp;{</font><br />
+<font color="#808080">085</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">truncate</font><font color="#000000">(</font><font color="#000000">pCalendar</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">086</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">vDate&nbsp;=&nbsp;pCalendar.getTime</font><font color="#000000">()</font><font color="#000000">;</font><br />
+<font color="#808080">087</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">088</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">089</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;</b></font><font color="#000000">DayDate</font><font color="#000000">(</font><font color="#000000">String&nbsp;pString</font><font color="#000000">)&nbsp;{</font><br />
+<font color="#808080">090</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">Date&nbsp;candidate&nbsp;=&nbsp;UNDEFINED_DATE;&nbsp;&nbsp;</font><font color="#008000">//&nbsp;Fallback</font><br />
+<font color="#808080">091</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>try&nbsp;</b></font><font color="#000000">{</font><br />
+<font color="#808080">092</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">candidate&nbsp;=&nbsp;LONG_FORMAT.parse</font><font color="#000000">(</font><font color="#000000">pString</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">093</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><font color="#0000c0"><b>catch&nbsp;</b></font><font color="#000000">(</font><font color="#000000">ParseException&nbsp;pe</font><font color="#000000">)&nbsp;{</font><br />
+<font color="#808080">094</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">LOG.error</font><font color="#000000">(</font><font color="#990000">&#34;Could&nbsp;not&nbsp;parse&nbsp;[&#34;&nbsp;</font><font color="#000000">+&nbsp;pString&nbsp;+&nbsp;</font><font color="#990000">&#34;].&#34;</font><font color="#000000">,&nbsp;pe</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">095</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">096</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">097</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>if&nbsp;</b></font><font color="#000000">(</font><font color="#000000">candidate&nbsp;!=&nbsp;UNDEFINED_DATE</font><font color="#000000">)&nbsp;{</font><br />
+<font color="#808080">098</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">Calendar&nbsp;calendar&nbsp;=&nbsp;Calendar.getInstance</font><font color="#000000">()</font><font color="#000000">;</font><br />
+<font color="#808080">099</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">calendar.setTime</font><font color="#000000">(</font><font color="#000000">candidate</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">100</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">truncate</font><font color="#000000">(</font><font color="#000000">calendar</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">101</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">candidate&nbsp;=&nbsp;calendar.getTime</font><font color="#000000">()</font><font color="#000000">;</font><br />
+<font color="#808080">102</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">103</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">104</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">vDate&nbsp;=&nbsp;candidate;</font><br />
+<font color="#808080">105</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">106</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">107</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">108</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;</b></font><font color="#000000">DayDate</font><font color="#000000">()&nbsp;{</font><br />
+<font color="#808080">109</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>this&nbsp;</b></font><font color="#000000">(</font><font color="#0000c0"><b>new&nbsp;</b></font><font color="#000000">Date</font><font color="#000000">())</font><font color="#000000">;</font><br />
+<font color="#808080">110</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">111</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">112</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">113</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">//------------------------------------------------------------</font><br />
+<font color="#808080">114</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">//-&nbsp;Accessors</font><br />
+<font color="#808080">115</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">116</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;</b></font><font color="#000000">Date&nbsp;getDate</font><font color="#000000">()&nbsp;{</font><br />
+<font color="#808080">117</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>return&nbsp;</b></font><font color="#000000">(</font><font color="#000000">vDate</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">118</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">119</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">120</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">121</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">//------------------------------------------------------------</font><br />
+<font color="#808080">122</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">//-&nbsp;Settors</font><br />
+<font color="#808080">123</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">124</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">125</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">//------------------------------------------------------------</font><br />
+<font color="#808080">126</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">//-&nbsp;Private/Protected&nbsp;Utility&nbsp;Functions</font><br />
+<font color="#808080">127</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">128</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>protected&nbsp;</b></font><font color="#000000">Calendar&nbsp;toFirstCalendar</font><font color="#000000">()&nbsp;{</font><br />
+<font color="#808080">129</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">Calendar&nbsp;result&nbsp;=&nbsp;toCalendar</font><font color="#000000">()</font><font color="#000000">;</font><br />
+<font color="#808080">130</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">result.set</font><font color="#000000">(</font><font color="#000000">Calendar.DAY_OF_MONTH,&nbsp;</font><font color="#990000">1</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">131</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">132</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>return&nbsp;</b></font><font color="#000000">(</font><font color="#000000">result</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">133</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">134</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">135</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>protected&nbsp;</b></font><font color="#000000">DayDate&nbsp;toFirst</font><font color="#000000">()&nbsp;{</font><br />
+<font color="#808080">136</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">DayDate&nbsp;result&nbsp;=&nbsp;</font><font color="#0000c0"><b>new&nbsp;</b></font><font color="#000000">DayDate</font><font color="#000000">(</font><font color="#000000">toFirstCalendar</font><font color="#000000">())</font><font color="#000000">;</font><br />
+<font color="#808080">137</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>return&nbsp;</b></font><font color="#000000">(</font><font color="#000000">result</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">138</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">139</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">140</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">141</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">//------------------------------------------------------------</font><br />
+<font color="#808080">142</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">//-&nbsp;Public&nbsp;Interface&nbsp;Functions</font><br />
+<font color="#808080">143</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">144</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;</b></font><font color="#000000">String&nbsp;format</font><font color="#000000">(</font><font color="#000000">DateFormat&nbsp;pFormat</font><font color="#000000">)&nbsp;{</font><br />
+<font color="#808080">145</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">String&nbsp;result&nbsp;=&nbsp;pFormat.format</font><font color="#000000">(</font><font color="#000000">getDate</font><font color="#000000">())</font><font color="#000000">;</font><br />
+<font color="#808080">146</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>return&nbsp;</b></font><font color="#000000">(</font><font color="#000000">result</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">147</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">148</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">149</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">150</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;</b></font><font color="#000000">String&nbsp;toString</font><font color="#000000">()&nbsp;{</font><br />
+<font color="#808080">151</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">String&nbsp;result&nbsp;=&nbsp;format</font><font color="#000000">(</font><font color="#000000">LONG_FORMAT</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">152</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>return&nbsp;</b></font><font color="#000000">(</font><font color="#000000">result</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">153</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">154</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">155</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">156</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;</b></font><font color="#000000">Calendar&nbsp;toCalendar</font><font color="#000000">()&nbsp;{</font><br />
+<font color="#808080">157</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">Calendar&nbsp;result&nbsp;=&nbsp;Calendar.getInstance</font><font color="#000000">()</font><font color="#000000">;</font><br />
+<font color="#808080">158</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">result.setTime</font><font color="#000000">(</font><font color="#000000">getDate</font><font color="#000000">())</font><font color="#000000">;</font><br />
+<font color="#808080">159</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">160</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>return&nbsp;</b></font><font color="#000000">(</font><font color="#000000">result</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">161</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">162</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">163</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">164</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;</b></font><font color="#000000">DayOfWeek&nbsp;toDayOfWeek</font><font color="#000000">()&nbsp;{</font><br />
+<font color="#808080">165</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">DayOfWeek&nbsp;result&nbsp;=&nbsp;isDefined</font><font color="#000000">()&nbsp;</font><font color="#000000">?</font><br />
+<font color="#808080">166</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">DayOfWeek.get</font><font color="#000000">(</font><font color="#000000">toCalendar</font><font color="#000000">())&nbsp;</font><font color="#000000">:</font><br />
+<font color="#808080">167</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">DayOfWeek.UNDEFINED;</font><br />
+<font color="#808080">168</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">169</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>return&nbsp;</b></font><font color="#000000">(</font><font color="#000000">result</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">170</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">171</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">172</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">173</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;</b></font><font color="#000000">Collection&nbsp;toAllDaysOfMonth</font><font color="#000000">()&nbsp;{</font><br />
+<font color="#808080">174</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">Collection&nbsp;result&nbsp;=&nbsp;</font><font color="#0000c0"><b>new&nbsp;</b></font><font color="#000000">ArrayList</font><font color="#000000">()</font><font color="#000000">;</font><br />
+<font color="#808080">175</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">176</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>if&nbsp;</b></font><font color="#000000">(</font><font color="#000000">isDefined</font><font color="#000000">())&nbsp;{</font><br />
+<font color="#808080">177</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">Calendar&nbsp;cal&nbsp;=&nbsp;toFirstCalendar</font><font color="#000000">()</font><font color="#000000">;</font><br />
+<font color="#808080">178</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#c00000"><b>int&nbsp;</b></font><font color="#000000">thisMonth&nbsp;=&nbsp;cal.get</font><font color="#000000">(</font><font color="#000000">Calendar.MONTH</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">179</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>do&nbsp;</b></font><font color="#000000">{</font><br />
+<font color="#808080">180</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">result.add</font><font color="#000000">(</font><font color="#0000c0"><b>new&nbsp;</b></font><font color="#000000">DayDate</font><font color="#000000">(</font><font color="#000000">cal</font><font color="#000000">))</font><font color="#000000">;</font><br />
+<font color="#808080">181</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">cal.add</font><font color="#000000">(</font><font color="#000000">Calendar.DAY_OF_MONTH,&nbsp;</font><font color="#990000">1</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">182</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><font color="#0000c0"><b>while&nbsp;</b></font><font color="#000000">(</font><font color="#000000">cal.get</font><font color="#000000">(</font><font color="#000000">Calendar.MONTH</font><font color="#000000">)&nbsp;</font><font color="#000000">==&nbsp;thisMonth</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">183</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">184</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">185</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>return&nbsp;</b></font><font color="#000000">(</font><font color="#000000">result</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">186</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">187</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">188</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">189</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;</b></font><font color="#000000">DayDate&nbsp;nextDay</font><font color="#000000">()&nbsp;{</font><br />
+<font color="#808080">190</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">Calendar&nbsp;cal&nbsp;=&nbsp;toCalendar</font><font color="#000000">()</font><font color="#000000">;</font><br />
+<font color="#808080">191</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">cal.add</font><font color="#000000">(</font><font color="#000000">Calendar.DAY_OF_MONTH,&nbsp;</font><font color="#990000">1</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">192</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">DayDate&nbsp;result&nbsp;=&nbsp;</font><font color="#0000c0"><b>new&nbsp;</b></font><font color="#000000">DayDate</font><font color="#000000">(</font><font color="#000000">cal</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">193</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">194</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>return&nbsp;</b></font><font color="#000000">(</font><font color="#000000">result</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">195</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">196</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">197</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">198</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;</b></font><font color="#000000">Collection&nbsp;enumerateTo</font><font color="#000000">(</font><font color="#000000">DayDate&nbsp;pEnd</font><font color="#000000">)&nbsp;{</font><br />
+<font color="#808080">199</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">Collection&nbsp;result&nbsp;=&nbsp;</font><font color="#0000c0"><b>new&nbsp;</b></font><font color="#000000">ArrayList</font><font color="#000000">()</font><font color="#000000">;</font><br />
+<font color="#808080">200</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">201</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>for&nbsp;</b></font><font color="#000000">(</font><font color="#000000">DayDate&nbsp;day=</font><font color="#0000c0"><b>this</b></font><font color="#000000">;&nbsp;!day.after</font><font color="#000000">(</font><font color="#000000">pEnd</font><font color="#000000">)</font><font color="#000000">;&nbsp;day=day.nextDay</font><font color="#000000">())&nbsp;{</font><br />
+<font color="#808080">202</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">result.add</font><font color="#000000">(</font><font color="#000000">day</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">203</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">204</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">205</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>return&nbsp;</b></font><font color="#000000">(</font><font color="#000000">result</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">206</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">207</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">208</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">209</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;</b></font><font color="#c00000"><b>boolean&nbsp;</b></font><font color="#000000">isDefined</font><font color="#000000">()&nbsp;{</font><br />
+<font color="#808080">210</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#c00000"><b>boolean&nbsp;</b></font><font color="#000000">result&nbsp;=&nbsp;!UNDEFINED_DATE.equals</font><font color="#000000">(</font><font color="#000000">getDate</font><font color="#000000">())</font><font color="#000000">;</font><br />
+<font color="#808080">211</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>return&nbsp;</b></font><font color="#000000">(</font><font color="#000000">result</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">212</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">213</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">214</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">215</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;</b></font><font color="#c00000"><b>boolean&nbsp;</b></font><font color="#000000">before</font><font color="#000000">(</font><font color="#000000">DayDate&nbsp;pOther</font><font color="#000000">)&nbsp;{</font><br />
+<font color="#808080">216</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#c00000"><b>boolean&nbsp;</b></font><font color="#000000">result&nbsp;=&nbsp;</font><font color="#000000">(</font><font color="#000000">pOther&nbsp;!=&nbsp;</font><font color="#0000c0"><b>null</b></font><font color="#000000">)&nbsp;</font><font color="#000000">&amp;&amp;&nbsp;getDate</font><font color="#000000">()</font><font color="#000000">.before</font><font color="#000000">(</font><font color="#000000">pOther.getDate</font><font color="#000000">())</font><font color="#000000">;</font><br />
+<font color="#808080">217</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>return&nbsp;</b></font><font color="#000000">(</font><font color="#000000">result</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">218</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">219</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">220</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">221</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;</b></font><font color="#c00000"><b>boolean&nbsp;</b></font><font color="#000000">after</font><font color="#000000">(</font><font color="#000000">DayDate&nbsp;pOther</font><font color="#000000">)&nbsp;{</font><br />
+<font color="#808080">222</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#c00000"><b>boolean&nbsp;</b></font><font color="#000000">result&nbsp;=&nbsp;</font><font color="#000000">(</font><font color="#000000">pOther&nbsp;!=&nbsp;</font><font color="#0000c0"><b>null</b></font><font color="#000000">)&nbsp;</font><font color="#000000">&amp;&amp;&nbsp;getDate</font><font color="#000000">()</font><font color="#000000">.after</font><font color="#000000">(</font><font color="#000000">pOther.getDate</font><font color="#000000">())</font><font color="#000000">;</font><br />
+<font color="#808080">223</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>return&nbsp;</b></font><font color="#000000">(</font><font color="#000000">result</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">224</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">225</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">226</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">227</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">//------------------------------------------------------------</font><br />
+<font color="#808080">228</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">//-&nbsp;Class&nbsp;Interface&nbsp;Functions</font><br />
+<font color="#808080">229</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">230</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;</b></font><font color="#c00000"><b>boolean&nbsp;</b></font><font color="#000000">equals</font><font color="#000000">(</font><font color="#000000">Object&nbsp;object</font><font color="#000000">)&nbsp;{</font><br />
+<font color="#808080">231</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#c00000"><b>boolean&nbsp;</b></font><font color="#000000">result&nbsp;=&nbsp;</font><font color="#0000c0"><b>false</b></font><font color="#000000">;&nbsp;&nbsp;</font><font color="#008000">//&nbsp;Pessimistic.</font><br />
+<font color="#808080">232</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">233</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>if&nbsp;</b></font><font color="#000000">(</font><font color="#000000">object&nbsp;</font><font color="#0000c0"><b>instanceof&nbsp;</b></font><font color="#000000">DayDate</font><font color="#000000">)&nbsp;{</font><br />
+<font color="#808080">234</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">DayDate&nbsp;other&nbsp;=&nbsp;</font><font color="#000000">(</font><font color="#000000">DayDate</font><font color="#000000">)&nbsp;</font><font color="#000000">object;</font><br />
+<font color="#808080">235</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">result&nbsp;=&nbsp;getDate</font><font color="#000000">()</font><font color="#000000">.equals</font><font color="#000000">(</font><font color="#000000">other.getDate</font><font color="#000000">())</font><font color="#000000">;</font><br />
+<font color="#808080">236</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">237</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">238</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>return&nbsp;</b></font><font color="#000000">(</font><font color="#000000">result</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">239</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">240</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">241</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">242</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;</b></font><font color="#c00000"><b>int&nbsp;</b></font><font color="#000000">hashCode</font><font color="#000000">()&nbsp;{</font><br />
+<font color="#808080">243</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#c00000"><b>int&nbsp;</b></font><font color="#000000">result&nbsp;=&nbsp;getDate</font><font color="#000000">()</font><font color="#000000">.hashCode</font><font color="#000000">()</font><font color="#000000">;</font><br />
+<font color="#808080">244</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>return&nbsp;</b></font><font color="#000000">(</font><font color="#000000">result</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">245</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">246</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">247</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">248</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;</b></font><font color="#c00000"><b>int&nbsp;</b></font><font color="#000000">compareTo</font><font color="#000000">(</font><font color="#000000">Object&nbsp;object</font><font color="#000000">)&nbsp;{</font><br />
+<font color="#808080">249</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#c00000"><b>int&nbsp;</b></font><font color="#000000">result&nbsp;=&nbsp;</font><font color="#990000">0</font><font color="#000000">;</font><br />
+<font color="#808080">250</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">251</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>if&nbsp;</b></font><font color="#000000">(</font><font color="#000000">object&nbsp;</font><font color="#0000c0"><b>instanceof&nbsp;</b></font><font color="#000000">DayDate</font><font color="#000000">)&nbsp;{</font><br />
+<font color="#808080">252</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">DayDate&nbsp;other&nbsp;=&nbsp;</font><font color="#000000">(</font><font color="#000000">DayDate</font><font color="#000000">)&nbsp;</font><font color="#000000">object;</font><br />
+<font color="#808080">253</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">result&nbsp;=&nbsp;getDate</font><font color="#000000">()</font><font color="#000000">.compareTo</font><font color="#000000">(</font><font color="#000000">other.getDate</font><font color="#000000">())</font><font color="#000000">;</font><br />
+<font color="#808080">254</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">255</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">256</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>return&nbsp;</b></font><font color="#000000">(</font><font color="#000000">result</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">257</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">258</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">259</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">260</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">261</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">//------------------------------------------------------------</font><br />
+<font color="#808080">262</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">//-&nbsp;Inner&nbsp;Classes</font><br />
+<font color="#808080">263</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">264</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">265</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">266</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">//------------------------------------------------------------</font><br />
+<font color="#808080">267</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">//-&nbsp;Main</font><br />
+<font color="#808080">268</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">269</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">270</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">271</font>&nbsp;<font color="#000000">}</font></code>
+    
+   </td>
+  <!-- end source code -->
+   </tr>
+</table>
+</div>
+<!-- =       END of automatically generated HTML code       = -->
+<!-- ======================================================== -->
+
+
+</body></html>

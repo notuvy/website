@@ -1,0 +1,40 @@
+
+<VirtualHost *:80>
+	ServerAdmin webmaster@localhost
+
+	DocumentRoot /home/murali/website/private
+	ServerName home.notuvy.com
+
+        Redirect permanent /pub/gen/trip.html http://data.notuvy.com/trip.html
+        Redirect permanent /pub/gen/tal/index.html http://data.notuvy.com/tal/index.html
+        Redirect permanent /pub/gen/svclog/index.html http://data.notuvy.com/svclog/index.html
+        Redirect permanent /pub/gen/bikemap/index.html http://data.notuvy.com/bikemap/index.html
+        Redirect permanent /pub/recipe/index.html http://recipe.notuvy.com
+        Redirect permanent /career/metaindex.html http://career.notuvy.com/metaindex.html
+
+
+	<Directory />
+		Options FollowSymLinks
+		AllowOverride None
+	</Directory>
+	<Directory /home/murali/website/private/>
+		Options Indexes FollowSymLinks MultiViews
+		AllowOverride None
+		Order allow,deny
+		allow from all
+
+		AuthType Basic
+		AuthName "NOTUVY:restricted"
+		AuthUserFile /home/murali/wwwconfig/pwd_home 
+		Require valid-user
+	</Directory>
+
+	ErrorLog ${APACHE_LOG_DIR}/error.log
+
+	# Possible values include: debug, info, notice, warn, error, crit,
+	# alert, emerg.
+	LogLevel warn
+
+	CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+</VirtualHost>

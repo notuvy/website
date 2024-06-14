@@ -1,0 +1,76 @@
+----------------------------------------------------------------------
+-- General questions
+
+What is the primary reason (if there is one) that the company will succeed?
+
+What is the biggest obstacle to the company's success?
+
+Where do you see the company one year from now?
+
+What values and philosophies do you look for when building the team?
+
+What brought you to the company?
+
+How do you expect to drive customer adoption of your product?
+
+How do you balance "get it done right" and "get it done now"?
+
+
+----------------------------------------------------------------------
+-- For executives
+
+How did you build the team?
+
+Who are the funders and backers?
+
+What other companies do you admire?
+
+
+----------------------------------------------------------------------
+-- For engineers
+
+Which do you think is the biggest challenge to the company: technical or
+marketing (or other)?
+
+What is your favorite engineering achievement of modern history, and why do
+you admire it?
+
+What IDEs are used?
+
+Are engineers required to deliver unit tests along with source code?
+What level of test coverage has been acheived?
+
+
+----------------------------------------------------------------------
+-- Details about the develoment environment.
+
+What is the development environment?
+(Would you be open to engineers installing Linux on their workstations?)
+
+What is the revision control system?
+
+What is the bug/feature tracking system?
+
+What is the philosophy on source code documentation?
+
+How is process documentation done?  Do you use a wiki?
+
+How are the roles of product management and engineering defined and
+separated?
+
+
+----------------------------------------------------------------------
+-- Details about the work culture.
+
+What are the working hours like in the company as a whole (what would a
+typical day look like)?
+
+How long do you expect to stay at the current location?
+
+What percentage of engineers work on weekends (and what percentage of
+weekends do they work)?
+
+Do people telecommute?  How often?
+
+
+----------------------------------------------------------------------

@@ -1,0 +1,183 @@
+
+<VirtualHost *:80>
+        ServerName it.notuvy.com
+        Redirect / https://it.notuvy.com/
+</VirtualHost>
+
+<VirtualHost *:443>
+        ServerName it.notuvy.com
+	DocumentRoot /home/murali/website/itroot
+
+        <Directory "/home/murali/website/itroot/">
+                Options Indexes MultiViews
+                AllowOverride None
+                Order allow,deny
+                Allow from all
+        </Directory>
+
+        <Location /trac> #set up parent Trac handling
+                SetHandler mod_python
+                PythonHandler trac.web.modpython_frontend
+                PythonOption TracEnvParentDir /opt/trac
+                PythonOption TracUriRoot /trac
+        </Location>
+
+        <Location /trac/it>
+                SetHandler mod_python
+                PythonHandler trac.web.modpython_frontend
+                PythonInterpreter main_interpreter
+                PythonOption TracEnv /opt/trac/it/
+                PythonOption TracUriRoot /trac/it
+        </Location>
+
+        <Location /trac/tal>
+                SetHandler mod_python
+                PythonHandler trac.web.modpython_frontend
+                PythonInterpreter main_interpreter
+                PythonOption TracEnv /opt/trac/tal/
+                PythonOption TracUriRoot /trac/tal
+        </Location>
+
+        <Location /trac/env>
+                SetHandler mod_python
+                PythonHandler trac.web.modpython_frontend
+                PythonInterpreter main_interpreter
+                PythonOption TracEnv /opt/trac/env/
+                PythonOption TracUriRoot /trac/env
+        </Location>
+
+        <Location /trac/jpodc>
+                SetHandler mod_python
+                PythonHandler trac.web.modpython_frontend
+                PythonInterpreter main_interpreter
+                PythonOption TracEnv /opt/trac/jpodc/
+                PythonOption TracUriRoot /trac/jpodc
+        </Location>
+
+        <Location /trac/jclipmgr>
+                SetHandler mod_python
+                PythonHandler trac.web.modpython_frontend
+                PythonInterpreter main_interpreter
+                PythonOption TracEnv /opt/trac/jclipmgr/
+                PythonOption TracUriRoot /trac/jclipmgr
+        </Location>
+
+        <Location /trac/notuvyutil>
+                SetHandler mod_python
+                PythonHandler trac.web.modpython_frontend
+                PythonInterpreter main_interpreter
+                PythonOption TracEnv /opt/trac/notuvyutil/
+                PythonOption TracUriRoot /trac/notuvyutil
+        </Location>
+
+        <Location /trac/geotools>
+                SetHandler mod_python
+                PythonHandler trac.web.modpython_frontend
+                PythonInterpreter main_interpreter
+                PythonOption TracEnv /opt/trac/geotools/
+                PythonOption TracUriRoot /trac/geotools
+        </Location>
+
+        <LocationMatch "/trac/[^/]+/login">
+                AuthType Basic
+                AuthName "NOTUVY Trac"
+                AuthUserFile /opt/trac/htpasswd
+                Require valid-user
+        </LocationMatch>
+
+        <Location /svn/sandbox>
+            DAV svn
+            AuthType Basic
+            AuthName "NOTUVY SVN"
+            AuthUserFile /var/svn/common/svnauth
+            Require valid-user
+            AuthzSVNAccessFile /var/svn/common/svnaccess
+            SVNPath /var/svn/repo/sandbox
+            ErrorDocument 404 default
+        </Location>
+
+        <Location /svn/website>
+            DAV svn
+            AuthType Basic
+            AuthName "SVN: website"
+            AuthUserFile /var/svn/common/svnauth
+            Require valid-user
+            AuthzSVNAccessFile /var/svn/common/svnaccess
+            SVNPath /var/svn/repo/website
+            ErrorDocument 404 default
+        </Location>
+
+        <Location /svn/shelltools>
+            DAV svn
+            AuthType Basic
+            AuthName "SVN: shelltools"
+            AuthUserFile /var/svn/common/svnauth
+            Require valid-user
+            AuthzSVNAccessFile /var/svn/common/svnaccess
+            SVNPath /var/svn/repo/shelltools
+            ErrorDocument 404 default
+        </Location>
+
+        <Location /svn/snipfolio>
+            DAV svn
+            AuthType Basic
+            AuthName "SVN: snipfolio"
+            AuthUserFile /var/svn/common/svnauth
+            Require valid-user
+            AuthzSVNAccessFile /var/svn/common/svnaccess
+            SVNPath /var/svn/repo/snipfolio
+            ErrorDocument 404 default
+        </Location>
+
+        <Location /svn/datafiles>
+            DAV svn
+            AuthType Basic
+            AuthName "SVN: datafiles"
+            AuthUserFile /var/svn/common/svnauth
+            Require valid-user
+            AuthzSVNAccessFile /var/svn/common/svnaccess
+            SVNPath /var/svn/repo/datafiles
+            ErrorDocument 404 default
+        </Location>
+
+        <Location /svn/mk>
+            DAV svn
+            AuthType Basic
+            AuthName "SVN: mk"
+            AuthUserFile /var/svn/common/svnauth
+            Require valid-user
+            AuthzSVNAccessFile /var/svn/common/svnaccess
+            SVNPath /var/svn/repo/mk
+            ErrorDocument 404 default
+        </Location>
+
+        <Location /svn/tools>
+            DAV svn
+            AuthType Basic
+            AuthName "SVN: tools"
+            AuthUserFile /var/svn/common/svnauth
+            Require valid-user
+            AuthzSVNAccessFile /var/svn/common/svnaccess
+            SVNPath /var/svn/repo/tools
+            ErrorDocument 404 default
+        </Location>
+
+        CustomLog ${APACHE_LOG_DIR}/trac/access.log combined
+        ErrorLog ${APACHE_LOG_DIR}/trac/error.log
+
+        SSLEngine on
+        SSLCertificateFile    /etc/ssl/certs/it2.crt
+        SSLCertificateKeyFile /etc/ssl/private/it2.key
+
+        ProxyRequests     Off
+        ProxyPreserveHost On
+
+        <Proxy http://vmkrishnan.homeip.net:52139/jenkins*>
+          Order deny,allow
+          Allow from all
+        </Proxy>
+
+        ProxyPass         /jenkins  http://vmkrishnan.homeip.net:52139/jenkins
+        ProxyPassReverse  /jenkins  http://vmkrishnan.homeip.net:52139/jenkins
+
+</VirtualHost>

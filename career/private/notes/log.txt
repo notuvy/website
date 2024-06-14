@@ -1,0 +1,234 @@
+
+===============================================================================
+= 05Dec06 Tue
+
+Satnam emailed sections of his book for me to review.
+
+===============================================================================
+= 06Dec06 Wed
+
+http://www.techcrunch.com/
+http://en.wikipedia.org/wiki/List_of_venture_capital_firms
+
+===============================================================================
+= 06Dec07 Thu
+
+Browsed through portfolios of several VCs.
+http://www.google.com/Top/Business/Financial_Services/Venture_Capital/
+
+Sent email to two companies found on the techcrunch listing: answeru and
+mymint.
+
+===============================================================================
+= 06Dec08 Fri
+
+http://www.svbizlaw.com/venture.capital.directory.htm
+
+Adam Blum is VP Engineering at Mobio [www.mobio.net].
+
+
+===============================================================================
+= 06Dec13 Wed
+
+Got a call from David Michaels of Mint Software.  We agreed to talk in more
+detail tomorrow at 11:00.
+[http://www.venturebeat.com/wire/2006/11/02/mint-software-raises-750000-for-personal-finance-service/]
+
+===============================================================================
+= 06Dec28 Thu
+
+Interview with Mint Software.
+Spoke with David Michaels.  He asked general questions and technical questions.
+The technical ones included design (overlapping rectanges, monopoly).
+Spoke with Aaron Peltzer.  He asked general questions (including in depth
+career history) and technical (algorithm) questions.
+David asked about my timeframe for making a decision.  He asked if I could do
+it by 2nd week Jan, but I said I needed until at least end Jan.
+
+
+===============================================================================
+= 07Jan10 Wed
+
+Met with Satnam after work.
+
+
+===============================================================================
+= 08Jan11 Thu
+
+Met with Roger Spreen at Krillion.
+
+Met with Pradip Madan after work.
+
+
+===============================================================================
+= 07Jan12 Fri
+
+Submitted my resignation (effective 26 Jan) to Rearden.
+
+Met with KJ after work.
+
+
+===============================================================================
+= 07Jan14 Sun
+
+Met with Satnam in the evening.
+
+
+===============================================================================
+= 07Jan18 Thu
+
+Made contact with Adam Blum.
+
+Sent email to Salil, reestablishing contact.
+Sent email to Prashant, reestablishing contact.
+
+
+===============================================================================
+= 07Jan19 Fri
+
+Interviewed with Krillion.
+Paul, Roger, Van, Andrea, Surya, Joel.
+They wanted to make an offer soon, I asked to go slower.
+
+Started an email converstion with Joaquin.
+
+Adam asked that we reconnect after I have officially left Rearden since they
+are negotiating a partnership.
+
+Met with Satnam, Pradip, KJ.
+
+===============================================================================
+= 07Jan26 Fri
+
+Last day at Rearden.
+
+Met briefly with Jorge, and had lunch with Tie, VP and founder at Lucidera.
+
+Met with Satnam, Pradip.
+I raised the point that we need to clearly address three questions:
+- What is the problem?
+- What is the solution?
+- Why are we the right team to implement the solution.
+
+
+===============================================================================
+= 07Jan28 Sun
+
+Investigated other solutions competing with ProjectX.
+Pradip forwarded Rize [http://www.ryze.com/].
+
+
+===============================================================================
+= 07Jan29 Mon
+
+Met with Joaquin at LendingClub.
+
+
+===============================================================================
+= 07Jan30 Tue
+
+Met with Adam and discussed Mobio.
+
+Received an email from Steve Samorodin about opportunities at Tivo.
+We agreed to meet tomorrow for lunch.
+
+Received an email from Dhaya about a friends startup.
+
+Called Jorge and told him that I would not be pursuing Lucidera any further.
+Sent an email to Tai with the same.
+
+
+===============================================================================
+= 07Jan31 Wed
+
+Sent an email to Joaquin saying that I will not be pursuing LendingClub any
+further.
+
+Had lunch with Steve.
+
+Briefly chatted with Satnam.
+
+
+===============================================================================
+= 07Feb01 Thu
+
+Met with Satnam, Pradip, and KJ at 123 signup.
+Pradip gave a presentation.  I gave a presentation on Lithium Technologies and
+Small World Labs.
+
+
+===============================================================================
+= 07Feb02 Fri
+
+David Michaels had responded to me about a return visit on Wed, but I had not
+checked my email.  I said I want to come in, and he set it up for Monday at
+5pm.
+
+Met with Pradip.  I expressed my concern that we have not defined the project
+clearly for me to be comfortable to commit.
+
+===============================================================================
+= 07Feb04 Sun
+
+Spoke with Satnam by phone and discussed that I would be dropping out.
+
+
+===============================================================================
+= 07Feb05 Mon
+
+Sent email to Adam Blum saying I am not going to pursue Mobio.
+
+Sent email to Steve Samorodin saying I am not going to pursue Tivo.
+
+Sent email to Satnam, Pradip, KJ saying I am not going to pursue .
+
+Met with Mint again.  Spoke with David, then with Matt and Poornima.
+David said that they want to make me an offer, but that the offer will have a
+two day time limit on it.  I said we should wait a little while so that I have
+my offers in parallel.  He will call me back Wed 5:30.
+
+
+===============================================================================
+= 07Feb06 Tue
+
+Met with Krillion again.  Had lunch with Roger and Jim.  We had some general
+discussions.  Roger said they will make an offer with no time limit, and he
+could get that to me by Thu.
+
+
+===============================================================================
+= 07Feb07 Wed
+
+David called with Mint's (verbal) offer.
+  title: Software Architect
+  salary: 90K, 110K post-series-A
+  stock: 0.45% (4 year vesting, 12 month cliff)
+  vacation: 10 days
+  benefits: health, dental
+
+
+===============================================================================
+= 07Feb08 Thu
+
+Roger called with Krillion's offer.
+  title: Senior Engineer
+  salary: 130K, plus 5K signing bonus
+  stock: 0.65% [100K] (4 year vesting, 12 month cliff) (same as rest of team)
+  benefits: health, dental, 401k
+
+Found web links that tie Aaron to the Ayn Rand institute:
+  http://www.aynrand.org/site/PageServer?pagename=education_contests_atlas_winners
+  http://www.aynrand.org/education_contests_atlas_winners2002
+  http://www.alexepstein.com/about.htm
+
+
+===============================================================================
+
+       January               February                 March
+Su Mo Tu We Th Fr Sa   Su Mo Tu We Th Fr Sa   Su Mo Tu We Th Fr Sa
+    1  2  3  4  5  6                1  2  3                1  2  3
+ 7  8  9 10 11 12 13    4  5  6  7  8  9 10    4  5  6  7  8  9 10
+14 15 16 17 18 19 20   11 12 13 14 15 16 17   11 12 13 14 15 16 17
+21 22 23 24 25 26 27   18 19 20 21 22 23 24   18 19 20 21 22 23 24
+28 29 30 31            25 26 27 28            25 26 27 28 29 30 31
+

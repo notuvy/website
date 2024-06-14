@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>SprintPCS Text Message Control</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script language="Javascript">
+  function selectRecipient() {
+    var recipient = document.recipients.phoneNumber.value;
+    if (parent == null) {
+        window.alert('No parent frame.');
+    } else if (parent.frames[1] == null) {
+        window.alert('No secondary frame.');
+    } else {
+        // window.alert(recipient);
+        document.recipients.display.value = recipient;
+        parent.frames[1].document.composeForm.phoneNumber.value = recipient;
+        parent.frames[1].document.composeForm.message.focus();
+    }
+
+  }
+</script>
+</head>
+
+<body>
+  <form name="recipients">
+    <label for="phoneNumber">Send to:</label>
+    <select name="phoneNumber" onChange="selectRecipient()">
+      <option value=""></option>
+      <option value="4088369467">Murali</option>
+      <option value="4088369483">Vaishali</option>
+    </select>
+
+    <label for="display">Number:</label>
+    <input type="text" name="display" value="">
+  </form>
+
+</body>
+</html>

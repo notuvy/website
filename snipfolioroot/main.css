@@ -1,0 +1,52 @@
+body {
+  margin-left: 15%;
+  margin-right: 15%;
+  margin-top: 5%;
+  background:#eeeeee;
+  color: #000000;
+  font-family: Arial, sans-serif;
+  font-size: 12pt;
+}
+
+h1 {
+  text-align: center;
+  color: #666666;
+  font-size: 48pt;
+  font-weight: bold;
+}
+
+h2 {
+  text-align: center;
+  color: #666666;
+  font-weight: bold;
+}
+
+h4 {
+  text-align: center;
+  color: #cc6600;
+  font-style: italic;
+}
+
+p.footnote {
+  font-size: 10pt;
+}
+
+p.notes {
+  font-size: 10pt;
+  font-style: italic;
+}
+
+sup {
+  font-size: 8pt;
+  font-weight: bold;
+}
+
+dt {
+  font-style: italic;
+}
+
+.download {
+  font-size: 14pt;
+  font-weight: bold;
+  background:#eeee00;
+}

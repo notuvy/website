@@ -1,0 +1,18 @@
+# AuthUserFile /srv/www/vhosts/notuvy.com/subdomains/home/httpdocs/private/.htpasswd
+AuthUserFile /srv/www/vhosts/notuvy.hostjava.net/httpdocs/private/.htpasswd
+AuthGroupFile /dev/null
+AuthName "NOTUVY restricted"
+AuthType Basic
+
+<Limit GET>
+require valid-user
+</Limit>
+
+ErrorDocument 404 http://www.notuvy.com
+
+redirect 301 /pub/gen/trip.html http://data.notuvy.com/trip.html
+redirect 301 /pub/gen/tal/index.html http://data.notuvy.com/tal/index.html
+redirect 301 /pub/gen/recipe/index.html http://recipe.notuvy.com
+redirect 301 /pub/gen/svclog/index.html http://data.notuvy.com/svclog/index.html
+redirect 301 /pub/gen/bikemap/index.html http://data.notuvy.com/bikemap/index.html
+# redirect 301 /private index.html

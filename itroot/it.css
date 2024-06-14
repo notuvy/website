@@ -1,0 +1,35 @@
+body {
+  margin: 5%;
+  background:#dddddd;
+  color: #000000;
+  font-family: Arial, sans-serif;
+  font-size: 12pt;
+}
+
+h1 {
+  text-align: center;
+  color: #cc6600;
+  font-size: 32pt;
+  font-weight: bold;
+}
+
+h4 {
+  text-align: center;
+  color: #cc6600;
+  font-style: italic;
+}
+
+p.summary {
+  text-align: center;
+}
+
+table {
+  font-size: 1em;
+  line-height: inherit;
+  border-collapse: collapse;
+  background:#ffffff;
+}
+
+td.prname {
+  font-weight: bold;
+}

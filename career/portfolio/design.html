@@ -1,0 +1,300 @@
+<html>
+<head>
+  <title>Sample Project: Design Principles</title>
+  <link rel="stylesheet" type="text/css" href="../main.css">
+  <link rel="stylesheet" type="text/css" href="portfolio.css">
+  <style>
+    th, .table-header {
+      color: #000099;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Sample Project: Design Principles</h1>
+
+<p>
+  Some of the design principles demonstrated in this example are:
+  <ul>
+    <li><a href="#interface">Generalization by Interface</a></li>
+    <li><a href="#enumeration">Enumerated Objects</a></li>
+    <li><a href="#nullpattern">Undefined Objects instead of null</a></li>
+    <li><a href="#visitor">Visitor/Dispatch Pattern</a></li>
+    <li><a href="#stringwriter">Usage of StringWriter instead of StringBuffer</a></li>
+    <li><a href="#regex">Usage Regular Expressions instead of String Manipulation</a></li>
+    <li><a href="#composition">Proper Composition of Component Objects</a></li>
+    <li><a href="#encapsulation">Proper Encapsulation of the Lowest-Level Data Object</a></li>
+  </ul>
+</p>
+
+<a name="interface"></a>
+<h3>Generalization by Interface</h3>
+
+<p class="section">
+  One measure of how much an engineer understands object oriented
+  principles it so see how much <code>instanceof</code> usage is
+  found in the design.
+  There are very few places where its usage is acceptable.
+  These are principally in methods called by the Collections framework
+  (e.g. <code>equals()</code>, <code>compareTo()</code>) since,
+  historically, Java allows heterogeneous collections.
+</p>
+<p class="section">
+  The correct approach is to look at logic where objects of different
+  classes are encountered and to ask "Can the different classes be
+  generalized in a single interface?"
+</p>
+<p class="section">
+  A Week can contain DayOfMonth or DayOfWeek instances.  Only the DayOfMonth
+  objects need to be marked.
+  So it might be tempting to check for that type of object and act only
+  on that:
+</p>
+<pre>
+    Iterator iterator = getMap().values().iterator();
+    while (iterator.hasNext()) {
+        Object object = iterator.next();
+        if (object instanceof DayOfMonth) {
+            DayOfMonth dow = (DayOfMonth) object;
+            dom.mark(pRange);
+        }
+    }
+</pre>
+<p class="section">
+    But this ignores a cleaner, object oriented option.
+    The better approach is to recognize that both types of objects that are
+    contained in a Week can be called to mark themselves as members of a
+    Range.
+    Therefore, we can create a Markable interface implemented by both
+    DayOfMonth and DayOfWeek.
+    The former can implement it appropriately, and the latter can give an
+    empty implementation (NOOP).
+    The logic then becomes:
+<pre>
+    Iterator iterator = getMap().values().iterator();
+    while (iterator.hasNext()) {
+        Markable markable = (Markable) iterator.next();
+        markable.mark(pRange);
+    }
+</pre>
+</p>
+
+<a name="enumeration"></a>
+<h3>Enumerated Objects</h3>
+
+<p><strong>Note that the Enum type was added in Java 5, making this construct unnecessary.  It is still included here because this was written originally when Java 4 was the latest release.</strong></p>
+
+<p class="section">
+  Often when it is necessary to define constants, an inexperienced programmer
+  will define them using primitive types.
+  Then when it is necessary to determine properties of the enumeration, a
+  static method will be used with a switch/if to drive the logic.
+  For example, the DayOfWeek implementation could be implemented as:
+<pre>
+    public static final int SUN = 1;
+    public static final int MON = 2;
+    public static final int TUE = 3;
+
+    public static String toString(int pDayOfWeek) {
+        String result = "Undefined";
+
+        switch (pDayOfWeek) {
+
+        case SUN:
+            result = "SUN";
+            break;
+
+        case MON:
+            result = "MON";
+            break;
+
+        case TUE:
+            result = "TUE";
+            break;
+
+        default:
+            break;
+        }
+
+        return (result);
+    }
+</pre>
+</p>
+
+<p class="section">
+  This is a common mistake which results from a lack of understanding of
+  basic object oriented principles.
+  Only if the <i>actual</i> value of the constant is a primitive should the
+  constant be of a primitive type.
+  Sure, it may be necessary to have an underlying representation that is a
+  primitive, but this a replacement of the <i>abstraction</i> with the
+  <i>implementation</i>.
+</p>
+
+<p class="section">
+  The actual implementation of DayOfWeek uses constants that are objects
+  that expose behavior, but not the underlying implementation.
+  DayOfWeek is defined as an abstract class, and the constant are the
+  instantiation of concrete inner classes.
+  (Note that it is strictly not necessary to use inner classes, but it
+  is preferred in this case because no client logic needs to know the
+  actual representation.)
+  The enumeration now uses the Flyweight pattern.
+  A primitive type (int) is used to create distinct implementations, but
+  this is not exposed int the public API.
+  Because it is a simple class, it was possible to use the Factory pattern
+  by having static factory methods.
+</p>
+
+<a name="nullpattern"></a>
+<h3>Undefined Objects instead of null</h3>
+<p class="section">
+  This is a key part of any design, so let me go into the issue in some
+  detail.
+  There is a bad tendency in Java programming to initialize objects to
+  <code>null</code>, or to use <code>null</code> to denote and 'undefined'
+  value.
+  Many programmers do this because several parts of the Java class library
+  do this (e.g. <code>Map.get(Object)</code> returns null if the given key
+  is not in the map).
+  However, this must be avoided except in the <i>rare</i> occasion that it 
+  must be done.
+  If the execution of the application regularly produces null pointer
+  exceptions, it it almost certainly due to this poor programming practice.
+</p>
+<p class="section">
+  The problem with using <code>null</code> to represent any kind of value
+  (including 'undefined', 'uninitialized', 'unknown', etc.) is that it is
+  not a value; not an object.
+  It cannot give any information about itself.
+</p>
+<p class="section">
+  The correct approach is to define a specific object to denote the
+  'undefined' value.
+</p>
+<p class="section">
+  In this example, a Week is a collection of days, but the first and/or the
+  last week of a month may not be completely filled.
+</p>
+
+<a name="visitor"></a>
+<h3>Visitor/Dispatch Pattern</h3>
+
+<p class="section">
+  We have created a custom object (<code>DayDate</code>) to represent the
+  date, rather than using the <code>Date</code> class directly.
+  This creates the issue of how to use a <code>DateFormatter</code> to
+  do formatting, because its <code>format()</code> takes a <code>Date</code>
+  as a parameter.
+  The incorrect approach is to expose the underlying representation:
+<pre>
+    static final DateFormat FORMATTER = new SimpleDateFormat("dd MMM yyyy");
+    DayDate day = new DayDate();
+    System.out.println(FORMATTER.format(day.getDate());  // BAD: implementation [getDate()] is exposed.
+</pre>
+</p>
+<p class="section">
+    This compromises object oriented design.
+    It should be recognized that there is no need to expose the
+    implementation here.
+    The correct approach is to pass the formatter to the <code>DayDate</code>
+    object and have it use the implementation <i>internally</i>.
+    This way, the client logic does not care how a <code>DayDate</code> is
+    implemented, it just knows that it can be formatted with a
+    <code>DateFormat</code>:
+<pre>
+    DayDate day = new DayDate();
+    System.out.println(day.format(FORMATTER));
+</pre>
+</p>
+
+<a name="stringwriter"></a>
+<h3>Usage of StringWriter instead of StringBuffer</h3>
+<p class="section">
+    Often Java programmers unthinkingly use <code>StringBuffer</code>
+    (either explicitly or implicitly via the <code>+</code> operator on
+    strings) to construct large string results.
+    This is one of the more inefficient ways to do string construction
+    because of the large number of objects that get constructed and copied
+    in the process.
+</p>
+<p class="section">
+    The example avoided this problem in the implementation of the
+    <code>toHtml()</code> of all <code>Printable</code> objects by passing
+    in a <code>StringWriter</code> that each object writes to.
+    Also, all logic calls the writer's <code>write()</code> method multiple
+    times instead of using the <code>+</code> operator on strings.
+</p>
+<p class="section">
+    Admittedly, the performance improvement gained by this paradigm is
+    likely negligible in an application of this small size.
+    Performance effects would be noticeable in a larger-scale application.
+</p>
+
+<a name="regex"></a>
+<h3>Usage Regular Expressions instead of String Manipulation</h3>
+<p class="section">
+    String data manipulation is a common action in many applications.
+    The earlier versions of Java provided only rudimentary tools for this.
+    Later versions introduced regular expressions, and this is a superior
+    way to do all string manipulation (except for cases where performance
+    is paramount).
+</p>
+<p class="section">
+    The problem with the rudimentary string tools (<code>indexOf()</code>,
+    <code>substring()</code>, etc.) is that their usage produces unreadable
+    logic.
+    Since they rely in indexing, it is common to find that this logic
+    introduces off-by-one errors and boundary errors.
+</p>
+<p class="section">
+    Usage of regular expressions greatly simplifies the logic, and makes it
+    much more readable (and hence more error-free and more maintainable).
+</p>
+
+<a name="composition"></a>
+<h3>Proper Composition of Component Objects</h3>
+<p class="section">
+  This problem naturally lends itself to a cascading series of
+  container/component relationships:<br/>
+  HtmlCal / Month / Week / DayOfMonth.
+</p>
+<p class="section">
+  It is important to design the classes so that a container object deals only
+  with the type of object it contains.
+  For example, an <code>HtmlCal</code> object deals with <code>Month</code>
+  objects, but never with the <code>Week</code> objects contained in the
+  <code>Month</code>.
+  All objects delegate all operations to their component object, which may
+  in turn do the same.
+</p>
+<p class="section">
+  In this relationship, the contained object never directly references its
+  container.
+  Its responsibility is to manage its compnents and to act independently
+  of how itself may be contained/aggregated.
+</p>
+<p class="section">
+  The strength of this model is the level of independece of all elements.
+  This property makes flexible and extensible.
+</p>
+
+<a name="encapsulation"></a>
+<h3>Proper Encapsulation of the Lowest-Level Data Object</h3>
+<p class="section">
+  Because this project deals with dates, it may be initially tempting to use
+  one of the built-in datatypes (<code>Date</code> or <code>Calendar</code>)
+  to represent the smallest unit of data, which is a calendar day.
+  After some investigation, it will be clear that either of these would not
+  be an exact fit because the requirements of a calendar day includes
+  functionality from both of these classes.
+</p>
+
+<p class="copyright">&copy;2006 Murali Krishnan</p>
+<p class="navreturn">
+  <a class="nav" href="index.html">sample project index</a>
+  <a class="nav" href="../index.html">main index</a>
+</p>
+
+</body>
+</html>
